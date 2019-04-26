@@ -22,6 +22,11 @@ import { Component } from '@angular/core';
         <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
       </li>
     </ul>
+
+    <p><ngb-progressbar [showValue]="true" type="success" [value]="25" [striped]="true" [animated]="true"></ngb-progressbar></p>
+    <p><ngb-progressbar [showValue]="true" type="info" [value]="50" [striped]="true" [animated]="true"></ngb-progressbar></p>
+    <p><ngb-progressbar [showValue]="true" type="warning" [value]="75" [striped]="true" [animated]="true"></ngb-progressbar></p>
+    <p><ngb-progressbar [showValue]="true" type="danger" [value]="100" [striped]="true" [animated]="true"></ngb-progressbar></p>
     
   `,
   styles: []
