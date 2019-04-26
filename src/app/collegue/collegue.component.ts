@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Input } from '@angular/core';
 
 @Component({
@@ -10,6 +10,11 @@ import { Input } from '@angular/core';
 export class CollegueComponent implements OnInit {
 
   @Input () col:String;
+  @Output() pressButton = new EventEmitter<string>();
+
+  spread () {
+    this.pressButton.emit ("Vous voulez modifiez un collegue");
+  }
 
   constructor() { }
 

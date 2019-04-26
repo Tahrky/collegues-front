@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <app-collegue [col]="collegues.collegue1"></app-collegue>
+    <app-collegue [col]="collegues.collegue1" (pressButton)="whenButtonPressed($event)"></app-collegue>
     <br/>
-    <app-collegue [col]="collegues.collegue2"></app-collegue>
+    <app-collegue [col]="collegues.collegue2" (pressButton)="whenButtonPressed($event)"></app-collegue>
 </div>
