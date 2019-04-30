@@ -10,10 +10,13 @@ import { Input } from '@angular/core';
 export class CollegueComponent implements OnInit {
 
   @Input () col:String;
-  @Output() pressButton = new EventEmitter<string>();
+  @Input () valeurBouton:String = "modifier";
+  @Input () edition:boolean = false;
 
   spread () {
-    this.pressButton.emit ("Vous voulez modifiez un collegue");
+    this.edition = !this.edition;
+
+    this.valeurBouton == "modifier" ? this.valeurBouton = "valider" : this.valeurBouton = "modifier";
   }
 
   constructor() { }

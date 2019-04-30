@@ -11,10 +11,4 @@ import { ColleguesMock } from './mock/collegues.mock';
 export class AppComponent {
   title = 'collegues-front';
   collegues:ColleguesMock = new ColleguesMock ();
-
-  whenButtonPressed(leTexte: string) {
-      alert (leTexte);
-  }
-
-
 }
