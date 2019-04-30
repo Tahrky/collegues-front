@@ -4,7 +4,7 @@
         <div class="col-md-6">
             <app-recherche-collegue-par-nom></app-recherche-collegue-par-nom>
         </div>
-        <div class="col-md-6" *ngFor="let collegue of collegues.tab">
+        <div class="col-md-6" *ngFor="let collegue of collegues">
             <app-collegue [col]="collegue"></app-collegue>
         </div>
     </div>

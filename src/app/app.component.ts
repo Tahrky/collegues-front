@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
-import { Collegue } from './models/Collegue';
-import { ColleguesMock } from './mock/collegues.mock';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styles: []
+  styles: [],
+  providers: [
+    DataService
+  ]
 })
 
 export class AppComponent {
+
+  constructor (private _srv:DataService) {
+  }
+
   title = 'collegues-front';
-  collegues:ColleguesMock = new ColleguesMock ();
+  collegues = this._srv.recupererCollegues ();
 }

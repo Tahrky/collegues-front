@@ -8,7 +8,6 @@ export class matriculeMock {
 
     constructor () {
     }
-
     rechercherParNom (nom:String) {
         return this.colleguesList.filter (c => c.nom == nom).map (c => c.matricule);
     }
