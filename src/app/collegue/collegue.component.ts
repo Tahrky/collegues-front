@@ -11,8 +11,8 @@ import { Collegue } from '../models/Collegue';
 export class CollegueComponent implements OnInit {
 
   @Input () col:Collegue;
-  @Input () valeurBouton:String = "modifier";
-  @Input () edition:boolean = false;
+  valeurBouton:String = "modifier";
+  edition:boolean = false;
 
   spread () {
     this.edition = !this.edition;
