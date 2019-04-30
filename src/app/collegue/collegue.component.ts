@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Input } from '@angular/core';
+import { Collegue } from '../models/Collegue';
 
 @Component({
   selector: 'app-collegue',
@@ -9,7 +10,7 @@ import { Input } from '@angular/core';
 
 export class CollegueComponent implements OnInit {
 
-  @Input () col:String;
+  @Input () col:Collegue;
   @Input () valeurBouton:String = "modifier";
   @Input () edition:boolean = false;
 

@@ -1,10 +1,10 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-6">
+        <div class="col-md-6">
             <app-recherche-collegue-par-nom></app-recherche-collegue-par-nom>
         </div>
-        <div class="col-6">
-            <app-collegue [col]="collegues.tab[1]"></app-collegue>
+        <div class="col-md-6" *ngFor="let collegue of collegues.tab">
+            <app-collegue [col]="collegue"></app-collegue>
         </div>
     </div>
 </div>

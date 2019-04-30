@@ -2,21 +2,21 @@
   <div class="col-3">
     <img src="{{col.photoUrl}}" class="img-fluid img-thumbnail" />
   </div>
-
   <div>
     Matricule : {{col.matricule}} <br/>
     Nom : {{col.nom | uppercase}}<br/>
     Prenoms : {{col.prenoms | lowercase}} <br/>
-    Email : <div [ngSwitch]="edition">
-                <p *ngSwitchCase="true"><input type="texte" #saisie1/></p>
-                <p *ngSwitchDefault>{{col.email}}</p>
-            </div><br/>
-    Date De Naissance : <div [ngSwitch]="edition">
-                            <p *ngSwitchCase="true"><input type="texte" #saisie2/></p>
-                            <p *ngSwitchDefault>{{col.dateDeNaissance | date:'longDate'}}</p>
-                        </div><br/>
     <div [ngSwitch]="edition">
-      <a href="newCollegue" *ngSwitchCase="false">Ajouter un collègue</a>
-    </div> <input type="submit" [value]="valeurBouton" (click)="spread()"/>
+      <div *ngSwitchCase="true">
+        Email : <input type="texte" #saisie1/> <br/>
+        Date De Naissance : <input type="texte" #saisie2/>
+      </div>
+      <div *ngSwitchDefault>
+        Email : {{col.email}} <br/>
+        Date De Naissance : {{col.dateDeNaissance | date:'longDate'}} <br/>
+        <a href="newCollegue">Ajouter un collègue</a>
+      </div>
+    </div>
+    <input type="submit" [value]="valeurBouton" (click)="spread()"/>
   </div>
 </div>
