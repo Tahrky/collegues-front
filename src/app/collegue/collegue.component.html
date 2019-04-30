@@ -6,14 +6,14 @@
     Matricule : {{col.matricule}} <br/>
     Nom : {{col.nom | uppercase}}<br/>
     Prenoms : {{col.prenoms | lowercase}} <br/>
+    Date De Naissance : {{col.dateDeNaissance | date:'longDate'}} <br/>
     <div [ngSwitch]="edition">
       <div *ngSwitchCase="true">
-        Email : <input type="texte" #saisie1/> <br/>
-        Date De Naissance : <input type="texte" #saisie2/>
+        Email : <input type="texte" [value]="col.email" #saisie1/> <br/>
+        photoUrl : <input type="texte" [value]="col.photoUrl" #saisie2/>
       </div>
       <div *ngSwitchDefault>
         Email : {{col.email}} <br/>
-        Date De Naissance : {{col.dateDeNaissance | date:'longDate'}} <br/>
         <a href="newCollegue">Ajouter un collègue</a>
       </div>
     </div>
