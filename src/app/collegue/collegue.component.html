@@ -14,9 +14,8 @@
       </div>
       <div *ngSwitchDefault>
         Email : {{col.email}} <br/>
-        <a href="newCollegue">Ajouter un collègue</a>
       </div>
     </div>
-    <input type="submit" [value]="valeurBouton" (click)="spread()"/>
+    <a href="newCollegue" [hidden]="edition">Ajouter un collègue</a> <input type="submit" [value]="valeurBouton" (click)="spread()"/>
   </div>
 </div>
