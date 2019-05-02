@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Get } from '../get';
 import { Observable } from 'rxjs';
@@ -15,6 +15,7 @@ export class RechercheCollegueParNomComponent implements OnInit {
   matricule:Observable<Get []>;
 
   collegueObservable:Observable<Collegue>;
+  @Output () emetteur:EventEmitter<Collegue> = new EventEmitter<Collegue>();
   collegue:Collegue;
 
   constructor(private _srv:DataService) { }
@@ -31,9 +32,13 @@ export class RechercheCollegueParNomComponent implements OnInit {
   }
 
   rechercherCollegueParMatricule (matricule) {
+    console.log ("Matricule : " + matricule);
     this.collegueObservable = this._srv.recupererCollegueParMatricule (matricule);
-    this.collegueObservable.subscribe ( collegue => this.collegue = collegue,
-                                        error => this.tabMatricules.push (error.message));
+    this.collegueObservable.subscribe ( collegue => {
+                                          this.collegue = collegue
+                                          this.emetteur.emit(this.collegue);
+                                        },
+                                        error => this.tabMatricules.push (error.message));                           
   }
 
 }

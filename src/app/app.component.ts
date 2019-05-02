@@ -25,4 +25,10 @@ export class AppComponent {
                               error => console.log (error.message));
   }
 
+  whenButtonPressed (collegue:Collegue) {
+    this.tabCollegues = []
+    this.tabCollegues.push (collegue);
+    console.log (collegue);
+  }
+
 }
