@@ -9,6 +9,6 @@ export class matriculeMock {
     constructor () {
     }
     rechercherParNom (nom:String) {
-        return this.colleguesList.filter (c => c.nom == nom).map (c => c.matricule);
+        return this.colleguesList.filter (c => c.nom.toUpperCase () == nom.toUpperCase ()).map (c => c.matricule);
     }
 }
