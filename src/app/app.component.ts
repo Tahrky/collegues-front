@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import {Get} from './get';
 import { Observable } from 'rxjs';
-import { Collegue } from './models/collegue';
+import { Collegue } from './models/Collegue';
 
 @Component({
   selector: 'app-root',

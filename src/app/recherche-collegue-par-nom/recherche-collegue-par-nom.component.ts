@@ -27,7 +27,7 @@ export class RechercheCollegueParNomComponent implements OnInit {
   }
 
   rechercherCollegueParMatricule (matricule) {
-    this._srv.recupererCollegueParMatricule (matricule).subscribe ();                          
+    this._srv.recupererCollegueParMatricule (matricule).subscribe (()=>{}, err => {console.log (err.message)});                          
   }
 
 }
