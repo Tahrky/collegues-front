@@ -20,15 +20,12 @@ export class AppComponent {
   tabCollegues:Collegue [] = new Array ();
 
   ngOnInit(): void {
-    this.collegues = this._service.recupererCollegues ();
-    this.collegues.subscribe (collegues => this.tabCollegues = collegues,
-                              error => console.log (error.message));
-  }
-
-  whenButtonPressed (collegue:Collegue) {
-    this.tabCollegues = []
-    this.tabCollegues.push (collegue);
-    console.log (collegue);
-  }
-
+      this.collegues = this._service.recupererCollegues ();
+      this.collegues.subscribe (collegues => this.tabCollegues = collegues,
+                                error => console.log (error.message));
+      this._service.prendreAbonnement ().subscribe (collegue => {
+        this.tabCollegues = [];
+        this.tabCollegues.push (collegue)}
+      );  
+    }
 }

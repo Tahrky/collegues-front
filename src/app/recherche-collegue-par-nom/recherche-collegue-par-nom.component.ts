@@ -14,14 +14,9 @@ export class RechercheCollegueParNomComponent implements OnInit {
   tabMatricules = new Array ();
   matricule:Observable<Get []>;
 
-  collegueObservable:Observable<Collegue>;
-  @Output () emetteur:EventEmitter<Collegue> = new EventEmitter<Collegue>();
-  collegue:Collegue;
-
   constructor(private _srv:DataService) { }
 
   ngOnInit() {
-    
   }
   rechercherMatriculeParNom (saisie) {
     this.tabMatricules = [];
@@ -32,13 +27,7 @@ export class RechercheCollegueParNomComponent implements OnInit {
   }
 
   rechercherCollegueParMatricule (matricule) {
-    console.log ("Matricule : " + matricule);
-    this.collegueObservable = this._srv.recupererCollegueParMatricule (matricule);
-    this.collegueObservable.subscribe ( collegue => {
-                                          this.collegue = collegue
-                                          this.emetteur.emit(this.collegue);
-                                        },
-                                        error => this.tabMatricules.push (error.message));                           
+    this._srv.recupererCollegueParMatricule (matricule).subscribe ();                          
   }
 
 }
