@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
+import {Get} from './get';
+import { Observable } from 'rxjs';
+import { Collegue } from './models/collegue';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +12,17 @@ import { DataService } from 'src/app/services/data.service';
 
 export class AppComponent {
 
-  constructor (private _srv:DataService) {
+  constructor (private _service:DataService) {
   }
 
   title = 'collegues-front';
-  collegues = this._srv.recupererCollegues ();
+  collegues :Observable<Collegue []>;
+  tabCollegues:Collegue [] = new Array ();
+
+  ngOnInit(): void {
+    this.collegues = this._service.recupererCollegues ();
+    this.collegues.subscribe (collegues => this.tabCollegues = collegues,
+                              error => console.log (error.message));
+  }
+
 }

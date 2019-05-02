@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { Get } from '../get';
+import { Observable } from 'rxjs';
+import { Collegue } from '../models/Collegue';
 
 @Component({
   selector: 'app-recherche-collegue-par-nom',
@@ -8,16 +11,29 @@ import { DataService } from '../services/data.service';
 })
 export class RechercheCollegueParNomComponent implements OnInit {
 
-  varMatriculeMock = new Array ();
-  matricule = new Array ();
+  tabMatricules = new Array ();
+  matricule:Observable<Get []>;
+
+  collegueObservable:Observable<Collegue>;
+  collegue:Collegue;
 
   constructor(private _srv:DataService) { }
 
   ngOnInit() {
+    
+  }
+  rechercherMatriculeParNom (saisie) {
+    this.tabMatricules = [];
+    this.matricule = this._srv.recupererMatriculeParNom (saisie);
+    this.matricule.subscribe (
+      matricules => matricules.forEach (matricule => this.tabMatricules.push (matricule)),
+      error => this.tabMatricules.push (error.message));
   }
 
-  afficherMatricule (saisie) {
-    this.matricule = this._srv.afficherMatriculeParNom (saisie);
+  rechercherCollegueParMatricule (matricule) {
+    this.collegueObservable = this._srv.recupererCollegueParMatricule (matricule);
+    this.collegueObservable.subscribe ( collegue => this.collegue = collegue,
+                                        error => this.tabMatricules.push (error.message));
   }
 
 }

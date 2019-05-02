@@ -1,20 +1,33 @@
 import { Injectable } from '@angular/core';
-import {matriculeMock} from '../mock/matricule.mock';
-import {ColleguesMock} from '../mock/collegues.mock';
+import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+
+import { environment } from '../../environments/environment';
+
+import { Observable } from 'rxjs'
+import { Get } from '../get';
+import { Collegue } from '../models/collegue';
+
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataService {
 
-  varMatriculeMock = new matriculeMock ();
-  varColleguesMock = new ColleguesMock ();
+  URL_BACKEND = environment.backendUrl;
 
-  recupererCollegues () {
-    return this.varColleguesMock.tab;
+  constructor (private _serveur:HttpClient) {
   }
 
-  afficherMatriculeParNom (saisie) {
-    return this.varMatriculeMock.rechercherParNom (saisie);
+  recupererCollegues () {
+    return this._serveur.get<Collegue[]> (`${this.URL_BACKEND}/matricules`);
+  }
+
+  recupererMatriculeParNom (nomSaisie:string) :Observable<Get[]>{
+    return this._serveur.get<Get[]> (`${this.URL_BACKEND}?nom=${nomSaisie}`);
+  }
+
+  recupererCollegueParMatricule (matricule:string) :Observable<Collegue>{
+    return this._serveur.get<Collegue> (`${this.URL_BACKEND}/${matricule}`);
   }
 }
