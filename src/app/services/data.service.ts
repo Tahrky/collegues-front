@@ -5,7 +5,7 @@ import { Observable, Subject } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 import { Get } from '../get';
-import { Collegue } from '../models/collegue';
+import { Collegue } from '../models/Collegue';
 import { tap} from 'rxjs/operators';
 
 const URL_BACKEND = environment.backendUrl;
