@@ -54,4 +54,8 @@ export class DataService {
   modifEmail (collegue:Collegue) {
     return this._serveur.patch<Collegue> (`${URL_BACKEND}/${collegue.matricule.toLowerCase ()}`, collegue);
   }
+
+  envoyerCollegue(collegue:Collegue){
+    return this._serveur.post(`${URL_BACKEND}`, collegue);
+ }
 }

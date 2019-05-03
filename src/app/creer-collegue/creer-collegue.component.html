@@ -1,0 +1,26 @@
+<div class="row cartel">
+    <div class="col-12 col-lg-5 justify-align-center align-self-center entete-cartel">
+      <img src="{{col.photoUrl}}" class="img-fluid img-thumbnail justify-align-center mx-auto d-block" />
+    </div>
+    <div class="col-12 col-lg-7 mx-auto d-block align-small ">
+      <form #formAjoutCollegue="ngForm" (ngSubmit)="submit()">
+        <div class="col-12"> 
+          <label>Nom :</label> <input type="text" [(ngModel)]="col.nom" name="email" #email="ngModel" required />
+        </div>
+        <div class="col-12">  
+          <label>Prenoms :</label> <input type="text" [(ngModel)]="col.prenoms" name="email" #email="ngModel" required/>
+        </div>
+        <div class="col-12"> 
+          <label>Email :</label> <input type="email" [(ngModel)]="col.email" name="email" #email="ngModel" required/>
+        </div>
+        <div class="col-12"> 
+          <label>Date De Naissance :</label> <input type="date" [(ngModel)]="col.dateDeNaissance" name="email" #email="ngModel" required/>
+        </div>
+        <div class="col-12"> 
+          <label>photoUrl :</label> <input type="text" [(ngModel)]="col.photoUrl"  name="photoUrl" #photoUrl="ngModel" required minlength="7"/>
+        </div>
+        <input [disabled]="formAjoutCollegue.invalid" type="submit" value="valider"/>
+      </form>
+    </div>
+  </div>
+  
