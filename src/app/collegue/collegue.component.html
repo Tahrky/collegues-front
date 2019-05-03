@@ -3,19 +3,22 @@
     <img src="{{col.photoUrl}}" class="img-fluid img-thumbnail justify-align-center mx-auto d-block" />
   </div>
   <div class="col-12 col-lg-7 mx-auto d-block align-small ">
-    Matricule : {{col.matricule}} <br/>
-    Nom : {{col.nom | uppercase}}<br/>
-    Prenoms : {{col.prenoms | lowercase}} <br/>
-    Date De Naissance : {{col.dateDeNaissance | date:'longDate'}} <br/>
-    <div [ngSwitch]="edition">
-      <div *ngSwitchCase="true">
-        Email : <input type="texte" [value]="col.email" #saisie1/> <br/>
-        photoUrl : <input type="texte" [value]="col.photoUrl" #saisie2/>
+    <form>
+      <label>Matricule :</label> {{col.matricule}} <br/>
+      <label>Nom :</label> {{col.nom | uppercase}}<br/>
+      <label>Prenoms :</label> {{col.prenoms | lowercase}} <br/>
+      <label>Date De Naissance :</label> {{col.dateDeNaissance | date:'longDate'}} <br/>
+      
+      <div [ngSwitch]="edition">
+        <div *ngSwitchCase="true">
+          <label>Email :</label> <input [(ngModel)]="col.email" name="email" #saisie1/> <br/>
+          <label>photoUrl :</label> <input [(ngModel)]="col.photoUrl"  name="photoUrl" #saisie2/>
+        </div>
+        <div *ngSwitchDefault>
+          <label>Email :</label> {{col.email}} <br/>
+        </div>
       </div>
-      <div *ngSwitchDefault>
-        Email : {{col.email}} <br/>
-      </div>
-    </div>
-    <a href="newCollegue" [hidden]="edition">Ajouter un collègue</a> <input type="submit" [value]="valeurBouton" (click)="spread()"/>
+      <a href="newCollegue" [hidden]="edition">Ajouter un collègue</a> <input type="submit" [value]="valeurBouton" (click)="spread()"/>
+    </form>
   </div>
 </div>
