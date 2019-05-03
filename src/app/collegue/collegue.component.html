@@ -3,7 +3,7 @@
     <img src="{{col.photoUrl}}" class="img-fluid img-thumbnail justify-align-center mx-auto d-block" />
   </div>
   <div class="col-12 col-lg-7 mx-auto d-block align-small ">
-    <form>
+    <form #formCollegue="ngForm" (ngSubmit)="submit()">
       <label>Matricule :</label> {{col.matricule}} <br/>
       <label>Nom :</label> {{col.nom | uppercase}}<br/>
       <label>Prenoms :</label> {{col.prenoms | lowercase}} <br/>
@@ -11,14 +11,24 @@
       
       <div [ngSwitch]="edition">
         <div *ngSwitchCase="true">
-          <label>Email :</label> <input [(ngModel)]="col.email" name="email" #saisie1/> <br/>
-          <label>photoUrl :</label> <input [(ngModel)]="col.photoUrl"  name="photoUrl" #saisie2/>
+          <div class="col-12"> 
+            <label>Email :</label> <input type="email" [(ngModel)]="colAModifier.email" name="email" #email="ngModel" required (change)="retablirEmail(email.invalid)" />
+          </div>
+          <div class="error col-12" *ngIf="email.invalid"> 
+            Ce champ est invalide ! Il doit être rempli pour être valide.
+          </div>
+          <div class="col-12"> 
+            <label>photoUrl :</label> <input type="text" [(ngModel)]="colAModifier.photoUrl"  name="photoUrl" #photoUrl="ngModel" required minlength="7" (change)="retablirPhotoUrl(photoUrl.invalid)" />
+          </div>
+          <div class="error col-12" *ngIf="photoUrl.invalid"> 
+              Ce champ est invalide ! Il doit contenir au moins 7 caractères.
+          </div>
         </div>
         <div *ngSwitchDefault>
           <label>Email :</label> {{col.email}} <br/>
         </div>
       </div>
-      <a href="newCollegue" [hidden]="edition">Ajouter un collègue</a> <input type="submit" [value]="valeurBouton" (click)="spread()"/>
+      <a href="newCollegue" [hidden]="edition">Ajouter un collègue</a>  <input [disabled]="formCollegue.invalid" type="submit" [value]="valeurBouton" (click)="spread()"/>
     </form>
   </div>
 </div>

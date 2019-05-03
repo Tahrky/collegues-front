@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 
 import { environment } from '../../environments/environment';
@@ -9,6 +9,12 @@ import { Collegue } from '../models/Collegue';
 import { tap} from 'rxjs/operators';
 
 const URL_BACKEND = environment.backendUrl;
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    "Content-Type": "application/json"
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +49,9 @@ export class DataService {
         }
       )
     );
+  }
+
+  modifEmail (collegue:Collegue) {
+    return this._serveur.patch<Collegue> (`${URL_BACKEND}/${collegue.matricule.toLowerCase ()}`, collegue);
   }
 }
