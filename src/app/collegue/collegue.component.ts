@@ -16,6 +16,7 @@ export class CollegueComponent implements OnInit {
   colAModifier:Collegue;
   valeurBouton:String = "modifier";
   edition:boolean = false;
+  ajoutCollegue:boolean = false;
 
   constructor(private _srv:DataService) { }
 

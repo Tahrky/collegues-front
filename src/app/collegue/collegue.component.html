@@ -1,4 +1,4 @@
-<div class="row cartel">
+<div class="row cartel" *ngIf="!ajoutCollegue">
   <div class="col-12 col-lg-5 justify-align-center align-self-center entete-cartel">
     <img src="{{col.photoUrl}}" class="img-fluid img-thumbnail justify-align-center mx-auto d-block" />
   </div>
@@ -28,7 +28,11 @@
           <label>Email :</label> {{col.email}} <br/>
         </div>
       </div>
-      <a href="newCollegue" [hidden]="edition">Ajouter un collègue</a>  <input [disabled]="formCollegue.invalid" type="submit" [value]="valeurBouton" (click)="spread()"/>
+      <a href=# (click)="ajoutCollegue=true" [hidden]="edition">Ajouter un collègue</a>  <input [disabled]="formCollegue.invalid" type="submit" [value]="valeurBouton" (click)="spread()"/>
     </form>
   </div>
+</div>
+
+<div *ngIf="ajoutCollegue">
+  <app-creer-collegue></app-creer-collegue>
 </div>
