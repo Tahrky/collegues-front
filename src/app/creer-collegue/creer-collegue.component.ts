@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Collegue } from '../models/Collegue';
 import { DataService } from '../services/data.service';
 
@@ -10,6 +10,8 @@ import { DataService } from '../services/data.service';
 export class CreerCollegueComponent implements OnInit {
 
   col = new Collegue("","","","","", "");
+  creationOk = "";
+  @Output () ajouterCollegue = new EventEmitter<boolean>();
 
   constructor(private _srv:DataService) { }
 
@@ -17,8 +19,10 @@ export class CreerCollegueComponent implements OnInit {
   }
 
   submit () {
-    this._srv.envoyerCollegue (this.col).subscribe ( collegue => console.log(collegue),
-                                                     err => console.log (err));
-    }
-      
-  }
+    this._srv.envoyerCollegue (this.col).subscribe ( collegue => {
+      console.log(collegue);
+      this.creationOk = "Collègue ajouté";
+      this.ajouterCollegue.emit (false);
+    }, err => console.log (err));
+  } 
+}

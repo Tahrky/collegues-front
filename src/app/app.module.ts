@@ -7,13 +7,15 @@ import { RechercheCollegueParNomComponent } from './recherche-collegue-par-nom/r
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule }   from '@angular/forms';
 import { CreerCollegueComponent } from './creer-collegue/creer-collegue.component';
+import { AfficherCollegueComponent } from './afficher-collegue/afficher-collegue.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CollegueComponent,
     RechercheCollegueParNomComponent,
-    CreerCollegueComponent
+    CreerCollegueComponent,
+    AfficherCollegueComponent
   ],
   imports: [
     BrowserModule,

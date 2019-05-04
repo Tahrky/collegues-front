@@ -1,0 +1,51 @@
+.cartel {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
+
+    margin: 5px;
+}
+
+.link {
+    color: blue !important;
+    text-decoration: underline !important;
+}
+
+.link:hover {
+    color: rgb(105, 1, 1) !important;
+}
+
+.error {
+    animation: blink-animation 2s steps(1000) infinite;
+    
+  }
+  @keyframes blink-animation {
+    from {
+        background-color: red;    
+    }
+    to {
+        background-color: none;    
+    }
+}
+
+@media (max-width: 991.98px) { 
+    .img-fluid {
+        max-height: auto;
+    }
+    
+    .align-small {
+        text-align: center;
+    }
+
+    .entete-cartel {
+        border-width: 1px;
+        border-radius: 6px;
+        background-color: rgb(90, 90, 90);
+    }
+}
+
+@media (min-width: 992px) { 
+    .img-fluid {
+        max-height: 160px;
+    }
+}
