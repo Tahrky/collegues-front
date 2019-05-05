@@ -6,7 +6,7 @@
             <input placeholder="Bob" type="texte" (keydown.enter)="rechercherMatriculeParNom(saisie1.value)"  #saisie1/> <input type="submit" value="rechercher" (click)="rechercherMatriculeParNom(saisie1.value)"/>
     </div>
     <div class="col-12 text-center" *ngFor="let mat of tabMatricules">
-            <input type="submit" value={{mat}} (click)="rechercherCollegueParMatricule(mat)"/>
+            <a class="link" (click)="rechercherCollegueParMatricule(mat)">{{mat}}</a>
     </div>
     
 </div>

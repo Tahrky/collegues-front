@@ -10,7 +10,7 @@
       <label>Date De Naissance :</label> {{col.dateDeNaissance | date:'longDate'}} <br/>
       
       <div [ngSwitch]="edition">
-        <div *ngSwitchCase="true">
+        <div *ngSwitchCase="true" class="row">
           <div class="col-12"> 
             <label>Email :</label> <input type="email" [(ngModel)]="colAModifier.email" name="email" #email="ngModel" required (change)="retablirEmail(email.invalid)" />
           </div>
@@ -28,7 +28,9 @@
           <label>Email :</label> {{col.email}} <br/>
         </div>
       </div>
-      <a (click)="ajoutCollegue()" [hidden]="edition" class="link">Ajouter un collègue</a>  <input [disabled]="formCollegue.invalid" type="submit" [value]="valeurBouton" (click)="spread()"/>
+      <div class="row">
+        <a (click)="ajoutCollegue()" [hidden]="edition" class="col-6 link">Ajouter un collègue</a>  <input class="col" [disabled]="formCollegue.invalid" type="submit" [value]="valeurBouton" (click)="spread()"/>
+      </div>
     </form>
   </div>
 </div>

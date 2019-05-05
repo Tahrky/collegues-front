@@ -12,12 +12,25 @@ label {
 
 .link {
     color: rgb(17, 82, 167) !important;
-    
+    text-align: center;
 }
 
 .link:hover {
-    color: rgb(17, 82, 167) !important;
     text-decoration: underline !important;
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    background: rgb(42, 131, 247);
+    color: white;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+}
+
+input[type="submit"]:hover  {
+    background: rgb(3, 42, 94);
+    cursor: pointer;
 }
 
 .error {
