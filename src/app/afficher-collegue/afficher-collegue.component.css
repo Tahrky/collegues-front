@@ -6,13 +6,18 @@
     margin: 5px;
 }
 
+label {
+    font-weight: bold;
+}
+
 .link {
-    color: blue !important;
-    text-decoration: underline !important;
+    color: rgb(17, 82, 167) !important;
+    
 }
 
 .link:hover {
-    color: rgb(105, 1, 1) !important;
+    color: rgb(17, 82, 167) !important;
+    text-decoration: underline !important;
 }
 
 .error {

@@ -7,6 +7,7 @@ import { DataService } from '../services/data.service';
   templateUrl: './creer-collegue.component.html',
   styleUrls: ['./creer-collegue.component.css']
 })
+
 export class CreerCollegueComponent implements OnInit {
 
   col = new Collegue("","","","","", "");
@@ -19,10 +20,13 @@ export class CreerCollegueComponent implements OnInit {
   }
 
   submit () {
-    this._srv.envoyerCollegue (this.col).subscribe ( collegue => {
-      console.log(collegue);
-      this.creationOk = "Collègue ajouté";
-      this.ajouterCollegue.emit (false);
+    this._srv.envoyerCollegue (this.col).subscribe ( (collegue:Collegue) => {
+      this.creationOk = "Collègue ajouté, il va s'afficher à l'écran dans un instant.";
+      setTimeout (() => {
+        this.ajouterCollegue.emit (false);
+        this._srv.recupererCollegueParMatricule(collegue.matricule).subscribe (()=>{}, err => {console.log (err.message)});
+      }, 5000);
+      
     }, err => console.log (err));
   } 
 }

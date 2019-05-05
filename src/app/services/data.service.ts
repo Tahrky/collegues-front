@@ -42,13 +42,7 @@ export class DataService {
 
   recupererCollegueParMatricule (matricule:string) :Observable<Collegue>{
     return this._serveur.get<Collegue> (`${URL_BACKEND}/${matricule.toLowerCase ()}`)
-    .pipe (
-      tap (
-        collegue => { 
-          this.subject.next(collegue);
-        }
-      )
-    );
+    .pipe ( tap (collegue => this.subject.next(collegue)));
   }
 
   modifEmail (collegue:Collegue) {

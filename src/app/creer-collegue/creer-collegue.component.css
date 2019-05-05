@@ -6,13 +6,21 @@
     margin: 5px;
 }
 
+label {
+    font-weight: bold;
+}
+
+.align-small {
+    text-align: center;
+}
+
+.datetime-input-box-wrapper  {
+	justify-content: center !important;
+}
+
 @media (max-width: 991.98px) { 
     .img-fluid {
         max-height: auto;
-    }
-    
-    .align-small {
-        text-align: center;
     }
 
     .entete-cartel {

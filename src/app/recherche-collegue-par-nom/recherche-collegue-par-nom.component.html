@@ -3,7 +3,7 @@
         Veuillez saisir le nom recherché :
     </div>
     <div class="col-12 col-sm-6 col-lg-12 text-center">
-            <input type="texte" (keydown.enter)="rechercherMatriculeParNom(saisie1.value)"  #saisie1/> <input type="submit" value="rechercher" (click)="rechercherMatriculeParNom(saisie1.value)"/>
+            <input placeholder="Bob" type="texte" (keydown.enter)="rechercherMatriculeParNom(saisie1.value)"  #saisie1/> <input type="submit" value="rechercher" (click)="rechercherMatriculeParNom(saisie1.value)"/>
     </div>
     <div class="col-12 text-center" *ngFor="let mat of tabMatricules">
             <input type="submit" value={{mat}} (click)="rechercherCollegueParMatricule(mat)"/>

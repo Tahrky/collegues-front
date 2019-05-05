@@ -39,7 +39,6 @@ export class AfficherCollegueComponent implements OnInit {
       this._srv.modifEmail (this.col).subscribe ( collegue => console.log(collegue),
                                                   err => console.log (err));
     }
-      
   }
 
   retablirEmail(retablir:boolean) {
