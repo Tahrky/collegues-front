@@ -21,7 +21,7 @@ label {
 /*classes*/
 
 .link {
-    color: rgb(17, 82, 167) !important;
+    color: rgb(211, 0, 88) !important;
     text-align: center;
 }
 
@@ -36,8 +36,8 @@ label {
     border-radius: 8px;
     margin: 5px;
     position: relative;
-    width: 97.5%;
-    left: 2.5%;
+    width: 99%;
+    left: 2%;
 }
 
 .align-small {
@@ -45,7 +45,7 @@ label {
 }
 
 .error {
-    animation: blink-animation 2s steps(1000) infinite;
+    animation: blink-animation 1.4s steps(1000) infinite;
     
   }
   @keyframes blink-animation {
@@ -81,7 +81,7 @@ label {
     }
 
     .cartel {
-        width: 98.75%;
+        width: 100%;
         left: 1.25%;
     }
 }

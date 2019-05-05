@@ -12,13 +12,13 @@
       <div [ngSwitch]="edition">
         <div *ngSwitchCase="true" class="row">
           <div class="col-12"> 
-            <label>Email :</label> <input type="email" [(ngModel)]="colAModifier.email" name="email" #email="ngModel" required (change)="retablirEmail(email.invalid)" />
+            <label class="col-12 col-lg-5">Email :</label> <input class="col-12 col-lg-7" type="email" [(ngModel)]="colAModifier.email" name="email" #email="ngModel" required (change)="retablirEmail(email.invalid)" />
           </div>
           <div class="error col-12" *ngIf="email.invalid"> 
             Ce champ est invalide ! Il doit être rempli pour être valide.
           </div>
           <div class="col-12"> 
-            <label>photoUrl :</label> <input type="text" [(ngModel)]="colAModifier.photoUrl"  name="photoUrl" #photoUrl="ngModel" required minlength="7" (change)="retablirPhotoUrl(photoUrl.invalid)" />
+            <label class="col-12 col-lg-5">UrlPhoto :</label> <input class="col-12 col-lg-7" type="text" [(ngModel)]="colAModifier.photoUrl"  name="photoUrl" #photoUrl="ngModel" required minlength="7" (change)="retablirPhotoUrl(photoUrl.invalid)" />
           </div>
           <div class="error col-12" *ngIf="photoUrl.invalid"> 
               Ce champ est invalide ! Il doit contenir au moins 7 caractères.
