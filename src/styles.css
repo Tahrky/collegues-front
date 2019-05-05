@@ -1,6 +1,6 @@
 /*elements HTML*/
 input[type="submit"] {
-    background: rgb(42, 131, 247);
+    background: rgb(211, 0, 88);
     color: white;
     border-radius: 8px;
     border: none;
@@ -10,7 +10,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover  {
-    background: rgb(3, 42, 94);
+    background: rgb(145, 0, 60);
     cursor: pointer;
 }
 
@@ -34,8 +34,10 @@ label {
     border-style: solid;
     border-width: 1px;
     border-radius: 8px;
-
     margin: 5px;
+    position: relative;
+    width: 97.5%;
+    left: 2.5%;
 }
 
 .align-small {
@@ -76,5 +78,10 @@ label {
 
     .img-fluid {
         max-height: 160px;
+    }
+
+    .cartel {
+        width: 98.75%;
+        left: 1.25%;
     }
 }

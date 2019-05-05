@@ -7,7 +7,7 @@ import { Collegue } from './models/Collegue';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styles: ['./app.component.css']
+  styles: []
 })
 
 export class AppComponent implements OnInit {
