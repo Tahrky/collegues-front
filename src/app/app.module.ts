@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule }   from '@angular/forms';
 import { CreerCollegueComponent } from './creer-collegue/creer-collegue.component';
 import { AfficherCollegueComponent } from './afficher-collegue/afficher-collegue.component';
+import { EmailValidatorDirective } from './validators/email-validator.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AfficherCollegueComponent } from './afficher-collegue/afficher-collegue
     CollegueComponent,
     RechercheCollegueParNomComponent,
     CreerCollegueComponent,
-    AfficherCollegueComponent
+    AfficherCollegueComponent,
+    EmailValidatorDirective
   ],
   imports: [
     BrowserModule,

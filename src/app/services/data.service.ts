@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
+import { AbstractControl } from "@angular/forms";
 
 import { environment } from '../../environments/environment';
 
 import { Get } from '../get';
 import { Collegue } from '../models/Collegue';
-import { tap} from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 const URL_BACKEND = environment.backendUrl;
 
@@ -51,5 +52,9 @@ export class DataService {
 
   envoyerCollegue(collegue:Collegue){
     return this._serveur.post(`${URL_BACKEND}`, collegue);
- }
+  }
+
+  existEmail (email:AbstractControl) {
+    return this._serveur.post(`${URL_BACKEND}/verifMail`, email.value);
+  }
 }
