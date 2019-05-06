@@ -113,10 +113,6 @@ div {
         text-align: left;
     }
 
-    .img-fluid {
-        max-height: 160px;
-    }
-
     .cartel {
         width: 98%;
         left: 1.25%;
