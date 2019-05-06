@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="row">
-        <a (click)="ajoutCollegue()" [hidden]="edition" class="col-6 link">Ajouter un collègue</a>  <input class="col" [disabled]="formCollegue.invalid && email.value!=col.email" type="submit" [value]="valeurBouton" (click)="spread()"/>
+        <a (click)="ajoutCollegue()" [hidden]="edition" class="col-6 link">Ajouter un collègue</a>  <input class="col" [disabled]="formCollegue.invalid && colAModifier.email!=col.email" type="submit" [value]="valeurBouton" (click)="spread()"/>
       </div>
     </form>
   </div>
