@@ -42,6 +42,14 @@ html {
     background-color: var(--darkGrey);
 }
 
+nav {
+    background-color: var(--darkGrey);
+}
+
+div {
+    background-color: var(--darkGrey);
+}
+
 /*classes*/
 
 .container-fluid {
@@ -68,7 +76,7 @@ html {
     border-radius: 8px;
     margin: 5px;
     position: relative;
-    width: 99%;
+    width: 97%;
     left: 2%;
 }
 
@@ -110,7 +118,7 @@ html {
     }
 
     .cartel {
-        width: 100%;
+        width: 98%;
         left: 1.25%;
     }
 

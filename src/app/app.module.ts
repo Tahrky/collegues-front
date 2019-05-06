@@ -9,6 +9,11 @@ import { FormsModule }   from '@angular/forms';
 import { CreerCollegueComponent } from './creer-collegue/creer-collegue.component';
 import { AfficherCollegueComponent } from './afficher-collegue/afficher-collegue.component';
 import { EmailValidatorDirective } from './validators/email-validator.directive';
+import { ROUTES } from './app.routes'
+import { RouterModule } from '@angular/router';
+import { AccueilComponent } from './accueil/accueil.component';
+import { GalerieComponent } from './galerie/galerie.component';
+import { CollegueFromGalerieComponent } from './collegue-from-galerie/collegue-from-galerie.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +22,17 @@ import { EmailValidatorDirective } from './validators/email-validator.directive'
     RechercheCollegueParNomComponent,
     CreerCollegueComponent,
     AfficherCollegueComponent,
-    EmailValidatorDirective
+    EmailValidatorDirective,
+    AccueilComponent,
+    GalerieComponent,
+    CollegueFromGalerieComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]

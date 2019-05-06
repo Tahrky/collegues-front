@@ -8,6 +8,7 @@ import { environment } from '../../environments/environment';
 import { Get } from '../get';
 import { Collegue } from '../models/Collegue';
 import { tap } from 'rxjs/operators';
+import { CollegueMatriculePhoto } from '../models/CollegueMatriculePhoto';
 
 const URL_BACKEND = environment.backendUrl;
 
@@ -33,7 +34,7 @@ export class DataService {
 		return this.subject.asObservable();
   }
 
-  recupererCollegues () {
+  recupererCollegues (): Observable<Collegue[]> {
     return this._serveur.get<Collegue[]> (`${URL_BACKEND}/collegues`);
   }
 
@@ -64,5 +65,9 @@ export class DataService {
 
   existEmail (email:AbstractControl) {
     return this._serveur.post(`${URL_BACKEND}/verifMail`, email.value);
+  }
+
+  recupererPhotos (matricule:string) :Observable<CollegueMatriculePhoto []>{
+    return this._serveur.get<CollegueMatriculePhoto []> (`${URL_BACKEND}/photos`);
   }
 }
