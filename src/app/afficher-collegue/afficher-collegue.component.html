@@ -16,7 +16,7 @@
                 <label class="col-12 col-lg-5">Email :</label> <input class="col-12 col-lg-6" appEmailValidator type="email" [(ngModel)]="colAModifier.email" name="email" #email="ngModel" required (change)="retablirEmail(email.invalid)" />
             </div>
           </div>
-          <div class="error col-12" *ngIf="email.invalid && email.errors.required"> 
+          <div class="error col-12" *ngIf="email.invalid && email.errors && email.errors.required"> 
             Ce champ est invalide ! Il doit être rempli pour être valide.
           </div>
           <div class="error col-12" *ngIf="email.errors && email.errors.emailExistant && email.value!=col.email"> 
