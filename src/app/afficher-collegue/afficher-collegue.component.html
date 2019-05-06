@@ -1,5 +1,5 @@
 <div class="row cartel">
-  <div class="col-12 col-lg-5 justify-align-center align-self-center entete-cartel">
+  <div class="col-12 col-lg-5 justify-align-center align-self-center">
     <img src="{{col.photoUrl}}" class="img-fluid img-thumbnail justify-align-center mx-auto d-block" />
   </div>
   <div class="col-12 col-lg-7 mx-auto d-block align-small ">
@@ -11,14 +11,18 @@
       
       <div [ngSwitch]="edition">
         <div *ngSwitchCase="true" class="row">
-          <div class="col-12 row"> 
-            <label class="col-12 col-lg-5">Email :</label> <input class="col-12 col-lg-7" type="email" [(ngModel)]="colAModifier.email" name="email" #email="ngModel" required (change)="retablirEmail(email.invalid)" />
+          <div class="col-12"> 
+            <div class="row">
+                <label class="col-12 col-lg-5">Email :</label> <input class="col-12 col-lg-6" type="email" [(ngModel)]="colAModifier.email" name="email" #email="ngModel" required (change)="retablirEmail(email.invalid)" />
+            </div>
           </div>
           <div class="error col-12" *ngIf="email.invalid"> 
             Ce champ est invalide ! Il doit être rempli pour être valide.
           </div>
-          <div class="col-12 row"> 
-            <label class="col-12 col-lg-5">UrlPhoto :</label> <input class="col-12 col-lg-7" type="text" [(ngModel)]="colAModifier.photoUrl"  name="photoUrl" #photoUrl="ngModel" required minlength="7" (change)="retablirPhotoUrl(photoUrl.invalid)" />
+          <div class="col-12"> 
+            <div class="row">
+              <label class="col-12 col-lg-5">UrlPhoto :</label> <input class="col-12 col-lg-6" type="text" [(ngModel)]="colAModifier.photoUrl"  name="photoUrl" #photoUrl="ngModel" required minlength="7" (change)="retablirPhotoUrl(photoUrl.invalid)" />
+            </div>
           </div>
           <div class="error col-12" *ngIf="photoUrl.invalid"> 
               Ce champ est invalide ! Il doit contenir au moins 7 caractères.

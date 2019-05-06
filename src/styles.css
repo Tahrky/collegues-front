@@ -1,15 +1,16 @@
 :root {
-    --blue: rgb(2, 103, 193); 
-    --lightBlue: #1e9fd0;
+    --lightBlue: #51bbfe;
+    --blue: #0267c1;  
+    --violet: #3D315B ;
     --red: #913633;
-    --violet: rgb(61, 49, 91) ;
-    --black: rgb(49, 47, 47);
-    --grey: rgb(110, 114, 113);
+    --beige: #e39774;
+    --grey: #6E7271;
+    --darkGrey: #312f2f;
 }
 
 /*elements HTML*/
 input[type="submit"] {
-    background: var(--blue);
+    background: var(--lightBlue);
     color: white;
     border-radius: 8px;
     border: none;
@@ -19,7 +20,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover  {
-    background: var(--violet);
+    background: var(--blue);
     cursor: pointer;
 }
 
@@ -28,13 +29,17 @@ label {
 }
 
 h1 {
-    color: var(--red);
+    color: var(--lightBlue);
+}
+
+html {
+    background-color: var(--darkGrey);
 }
 
 /*classes*/
 
 .container-fluid {
-    background-color: var(--black);
+    background-color: var(--darkGrey);
 }
 
 .link {
@@ -83,12 +88,6 @@ h1 {
 @media (max-width: 991.98px) { 
     .img-fluid {
         max-height: auto;
-    }
-
-    .entete-cartel {
-        border-width: 1px;
-        border-radius: 6px;
-        background-color: var(--blue);
     }
 }
 
