@@ -2,8 +2,10 @@
     --lightBlue: #51bbfe;
     --blue: #0267c1;  
     --darkBlue: #2d3754;
-    --violet: #3D315B ;
     --darkViolet: #1a1423;
+    --violet: #3D315B ;
+    --pink: #f196b5;
+    --darkPink: #ba6e87;
     --red: #913633;
     --beige: #e39774;
     --green: #4c9f70;
@@ -13,7 +15,7 @@
 }
 
 /*elements HTML*/
-input[type="submit"] {
+input[type="submit"], input[type="button"] {
     background: var(--lightBlue);
     color: white;
     border-radius: 8px;
@@ -23,8 +25,8 @@ input[type="submit"] {
     margin: 2px;
 }
 
-input[type="submit"]:hover  {
-    background: var(--darkBlue);
+input[type="submit"]:hover, input[type="button"]:hover  {
+    background: var(--blue);
     cursor: pointer;
 }
 
@@ -75,16 +77,12 @@ html {
 }
 
 .error {
-    animation: blink-animation 1.4s steps(1000) infinite;
-    
-  }
-  @keyframes blink-animation {
-    from {
-        background-color: var(--red);    
-    }
-    to {
-        background-color: none;    
-    }
+    background-color: var(--red);
+    font-size: 1.2em;
+}
+
+.success {
+    background-color: var(--green);
 }
 
 /* Responsive modification with Bootstrap */

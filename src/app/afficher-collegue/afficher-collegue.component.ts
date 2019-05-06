@@ -12,7 +12,7 @@ export class AfficherCollegueComponent implements OnInit {
 
   @Input () col:Collegue;
   colAModifier:Collegue;
-  valeurBouton:String = "modifier";
+  valeurBouton:String = "Modifier";
   edition:boolean = false;
   @Output () ajouterCollegue = new EventEmitter<boolean>();
   
@@ -25,7 +25,7 @@ export class AfficherCollegueComponent implements OnInit {
 
   spread () {
     this.edition = !this.edition;
-    this.valeurBouton == "modifier" ? this.valeurBouton = "valider" : this.valeurBouton = "modifier";
+    this.valeurBouton == "Modifier" ? this.valeurBouton = "Valider" : this.valeurBouton = "Modifier";
   }
 
   ajoutCollegue () {

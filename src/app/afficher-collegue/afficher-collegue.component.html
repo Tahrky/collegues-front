@@ -13,7 +13,7 @@
         <div *ngSwitchCase="true" class="row">
           <div class="col-12"> 
             <div class="row">
-                <label class="col-12 col-lg-5">Email :</label> <input class="col-12 col-lg-6" appEmailValidator type="email" [(ngModel)]="colAModifier.email" name="email" #email="ngModel" required (change)="retablirEmail(email.invalid)" />
+                <label class="col-12 col-lg-5">Email :</label> <input class="col-12 col-lg-6" appEmailValidator type="email" [(ngModel)]="colAModifier.email" name="email" #email="ngModel" required (change)="retablirEmail(email.invalid)"/>
             </div>
           </div>
           <div class="error col-12" *ngIf="email.invalid && email.errors && email.errors.required"> 
@@ -36,7 +36,9 @@
         </div>
       </div>
       <div class="row">
-        <a (click)="ajoutCollegue()" [hidden]="edition" class="col-6 link">Ajouter un collègue</a>  <input class="col" [disabled]="formCollegue.invalid && colAModifier.email!=col.email" type="submit" [value]="valeurBouton" (click)="spread()"/>
+        <a (click)="ajoutCollegue()" [hidden]="edition" class="col-6 link">Ajouter un collègue</a>
+        <input type="button" (click)="spread()" [hidden]="!edition" class="col-6" value="Annuler"/> 
+        <input class="col" [disabled]="formCollegue.invalid && colAModifier.email!=col.email" type="submit" [value]="valeurBouton" (click)="spread()"/>
       </div>
     </form>
   </div>

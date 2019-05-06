@@ -7,7 +7,6 @@ import { tap, map} from 'rxjs/operators';
 @Directive({
   selector: '[appEmailValidator]',
   providers: [{provide: NG_ASYNC_VALIDATORS, useExisting: EmailValidatorDirective, multi: true}]
-
 })
 export class EmailValidatorDirective implements AsyncValidator{
 

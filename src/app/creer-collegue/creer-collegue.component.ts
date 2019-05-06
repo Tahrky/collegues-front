@@ -19,11 +19,15 @@ export class CreerCollegueComponent implements OnInit {
   ngOnInit() {
   }
 
+  spread () {
+    this.ajouterCollegue.emit (false);
+  }
+
   submit () {
     this._srv.envoyerCollegue (this.col).subscribe ( (collegue:Collegue) => {
       this.creationOk = "Collègue ajouté, il va s'afficher à l'écran dans un instant.";
       setTimeout (() => {
-        this.ajouterCollegue.emit (false);
+        this.spread ();
         this._srv.recupererCollegueParMatricule(collegue.matricule).subscribe (()=>{}, err => {console.log (err.message)});
       }, 5000);
       

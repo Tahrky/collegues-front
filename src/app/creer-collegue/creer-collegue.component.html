@@ -17,7 +17,7 @@
           Ce champ est requis ! Il doit être rempli pour être valide.
         </div>
         <div class="col-12"> 
-          <label class="col-12">Email :</label> <input class="col-12" appEmailValidator type="email" [(ngModel)]="col.email" name="email" #email="ngModel" required/>
+          <label class="col-12">Email :</label> <input class="col-12" appEmailValidator type="email" [(ngModel)]="col.email" name="email" #email="ngModel" required [ngModelOptions]="{updateOn: 'blur'}"/>
         </div>
         <div class="error col-12" *ngIf="email.invalid && email.errors.required && email.dirty"> 
           Ce champ est requis ! Il doit être rempli pour être valide.
@@ -37,9 +37,14 @@
         <div class="error col-12" *ngIf="photoUrl.invalid && photoUrl.dirty"> 
           Ce champ est requis ! Il doit être rempli pour être valide.
         </div>
-        <input class="col-12" [disabled]="formAjoutCollegue.invalid" type="submit" value="valider"/>
+        <div class="row">
+          <input type="button" (click)="spread()" class="col-6" value="Annuler"/> 
+          <input class="col" [disabled]="formAjoutCollegue.invalid" type="submit" value="Valider"/>
+        </div>
       </form>
-      {{creationOk}}
+      <div class="col-12 success">
+        {{creationOk}}
+      </div>
     </div>
   </div>
   
