@@ -1,11 +1,15 @@
 :root {
     --lightBlue: #51bbfe;
     --blue: #0267c1;  
+    --darkBlue: #2d3754;
     --violet: #3D315B ;
+    --darkViolet: #1a1423;
     --red: #913633;
     --beige: #e39774;
+    --green: #4c9f70;
     --grey: #6E7271;
     --darkGrey: #312f2f;
+    --black: #07070a;
 }
 
 /*elements HTML*/
@@ -20,7 +24,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover  {
-    background: var(--blue);
+    background: var(--darkBlue);
     cursor: pointer;
 }
 
@@ -29,7 +33,7 @@ label {
 }
 
 h1 {
-    color: var(--lightBlue);
+    color: white;
 }
 
 html {
@@ -44,7 +48,6 @@ html {
 
 .link {
     font-size: 1.1rem;
-    
     color: var(--lightBlue) !important;
     text-align: center;
 }
@@ -89,6 +92,13 @@ html {
     .img-fluid {
         max-height: auto;
     }
+
+    .entete-cartel {
+        background-color: var(--darkBlue);
+        border: 1px;
+        border-style: solid;
+        border-radius: 8px;
+    }
 }
 
 @media (min-width: 992px) { 
@@ -104,5 +114,9 @@ html {
     .cartel {
         width: 100%;
         left: 1.25%;
+    }
+
+    .link {
+        text-align: left;
     }
 }
