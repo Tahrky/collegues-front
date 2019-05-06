@@ -1,9 +1,7 @@
 <div class="row">
-    <div class="col-12 col-sm-6 col-lg-3" *ngFor="let col of tabCollegues">
-      <div class="justify-align-center align-self-center">
+    <div class="col-12 col-sm-6 col-lg-3 " *ngFor="let col of tabCollegues">
         <a routerLink="/collegue/{{col.matricule}}">
           <img alt="{{col.matricule}}" src="{{col.photoUrl}}" class="img-fluid img-thumbnail justify-align-center mx-auto d-block"/>
         </a>
-      </div>
     </div>
 </div>

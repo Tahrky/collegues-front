@@ -1,13 +1,17 @@
-<header>
+<header class="row">
+    <h1> L'application des collègues </h1>
 </header>
-<nav class="row">
-    <a class="col" routerLink="/accueil">Accueil</a>
-    <a class="col" routerLink="/galerie">Galerie</a>
-    <a class="col" routerLink="/apropos">A Propos</a>
+
+<nav class="row text-center">
+    <a class="col-3 menu" routerLink="/accueil">Accueil</a>
+    <a class="col-3 menu" routerLink="/galerie">Galerie</a>
+    <a class="col-3 menu" routerLink="/administration">Administration</a>
+    <a class="col-3 menu" routerLink="/apropos">A Propos</a>
 </nav>
-<main>
+
+<main class="row">
     <router-outlet></router-outlet>
 </main>
-<footer>
-</footer>
 
+<footer class="row">
+</footer>

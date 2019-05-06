@@ -11,9 +11,10 @@ import { AfficherCollegueComponent } from './afficher-collegue/afficher-collegue
 import { EmailValidatorDirective } from './validators/email-validator.directive';
 import { ROUTES } from './app.routes'
 import { RouterModule } from '@angular/router';
-import { AccueilComponent } from './accueil/accueil.component';
+import { AdministrationComponent } from './administration/administration.component';
 import { GalerieComponent } from './galerie/galerie.component';
 import { CollegueFromGalerieComponent } from './collegue-from-galerie/collegue-from-galerie.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +24,10 @@ import { CollegueFromGalerieComponent } from './collegue-from-galerie/collegue-f
     CreerCollegueComponent,
     AfficherCollegueComponent,
     EmailValidatorDirective,
-    AccueilComponent,
+    AdministrationComponent,
     GalerieComponent,
-    CollegueFromGalerieComponent
+    CollegueFromGalerieComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,

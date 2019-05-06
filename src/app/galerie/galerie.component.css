@@ -1,0 +1,8 @@
+div {
+    background-color: var(--darkGrey);
+}
+
+.img-fluid {
+    max-height: 300px;
+    margin: 20px 0px; 
+}
