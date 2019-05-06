@@ -34,11 +34,19 @@ export class DataService {
   }
 
   recupererCollegues () {
-    return this._serveur.get<Collegue[]> (`${URL_BACKEND}/matricules`);
+    return this._serveur.get<Collegue[]> (`${URL_BACKEND}/collegues`);
   }
 
   recupererMatriculeParNom (nomSaisie:string) :Observable<Get[]>{
-    return this._serveur.get<Get[]> (`${URL_BACKEND}?nom=${nomSaisie.toLowerCase ()}`);
+    if (nomSaisie.length == 0)
+    {
+      return this._serveur.get<Get[]> (`${URL_BACKEND}/matricules`);
+    }
+    else 
+    {
+      return this._serveur.get<Get[]> (`${URL_BACKEND}?nom=${nomSaisie.toLowerCase ()}`);
+    }
+    
   }
 
   recupererCollegueParMatricule (matricule:string) :Observable<Collegue>{
