@@ -10,7 +10,7 @@ import { DataService } from '../services/data.service';
 
 export class CreerCollegueComponent implements OnInit {
 
-  col = new Collegue("","","","","", "");
+  col = new Collegue("","","","","");
   creationOk = "";
   @Output () ajouterCollegue = new EventEmitter<boolean>();
 
