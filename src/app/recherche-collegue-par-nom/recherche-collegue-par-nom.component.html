@@ -1,6 +1,7 @@
 <div class="row cartel">
     <div class="col-12 col-sm-6 col-lg-12 text-center">
-        Veuillez saisir le nom recherché :
+        Veuillez saisir le nom recherché : <br/>
+           (Vide = tous les matricules)
     </div>
     <div class="col-12 col-sm-6 col-lg-12 text-center">
             <input placeholder="Bob" type="texte" (keydown.enter)="rechercherMatriculeParNom(saisie1.value)"  #saisie1/> <input type="submit" value="rechercher" (click)="rechercherMatriculeParNom(saisie1.value)"/>

@@ -4,5 +4,6 @@ div {
 
 .img-fluid {
     max-height: 300px;
+    max-width: 300px;
     margin: 20px 0px; 
 }
