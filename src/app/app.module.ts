@@ -16,6 +16,7 @@ import { GalerieComponent } from './galerie/galerie.component';
 import { CollegueFromGalerieComponent } from './collegue-from-galerie/collegue-from-galerie.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { AProposComponent } from './apropos/apropos.component';
+import { NotesComponent } from './notes/notes.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AProposComponent } from './apropos/apropos.component';
     GalerieComponent,
     CollegueFromGalerieComponent,
     AccueilComponent,
-    AProposComponent
+    AProposComponent,
+    NotesComponent
   ],
   imports: [
     BrowserModule,

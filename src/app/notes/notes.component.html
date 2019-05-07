@@ -1,0 +1,12 @@
+<form #formNote="ngForm" (ngSubmit)="submit()">
+        <textarea class="col-12" name="textarea" id="textarea" rows="4">Vous pouvez écrire ici une petite note pour votre collègue.
+        </textarea>
+        <input class="col-12" value="Envoyer" type="submit"/>
+</form>
+{{note}}
+
+<div *ngFor="let noteIndividuelle of tabNote" class="note">
+    {{noteIndividuelle.date}}
+    {{noteIndividuelle.message}}
+</div>
+

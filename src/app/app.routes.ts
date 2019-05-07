@@ -9,7 +9,7 @@ export const ROUTES: Routes = [
     { path: 'accueil', component: AccueilComponent },
     { path: 'administration', component: AdministrationComponent },
     { path: 'galerie', component: GalerieComponent },
-    { path: 'collegue/:matricule', component: CollegueFromGalerieComponent},
+    { path: 'galerie/:matricule', component: CollegueFromGalerieComponent},
     { path: 'apropos', component: AProposComponent},
 
     { path: '', pathMatch: 'full', redirectTo: '/accueil' }

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { CollegueMatriculePhoto } from '../models/CollegueMatriculePhoto';
 import { Observable } from 'rxjs';
-import { CollegueComponent } from '../collegue/collegue.component'
 import { Router } from '@angular/router';
 
 @Component({

@@ -12,7 +12,6 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class CollegueFromGalerieComponent implements OnInit {
 
   @Input () col:Collegue;
-  matricule: string;
 
   constructor(private _service:DataService, private _route:ActivatedRoute) { }
 

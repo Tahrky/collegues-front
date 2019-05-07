@@ -1,0 +1,8 @@
+.note {
+    background-color: var(--grey);
+    color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
+    margin: 5px;
+}
