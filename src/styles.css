@@ -131,10 +131,6 @@ app-root {
 
 /* Responsive modification with Bootstrap */
 @media (max-width: 991.98px) { 
-    .img-fluid {
-        max-height: auto;
-    }
-
     .entete-cartel {
         background-color: var(--darkBlue);
         border: 1px;
