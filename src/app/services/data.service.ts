@@ -28,9 +28,12 @@ export class DataService {
 
   observable = new Observable ();
   subject:Subject<Collegue> = new Subject();
+  subjectNote:Subject<Note> = new Subject();
   
   constructor (private _serveur:HttpClient) {
   }
+
+  // Gestion des collègues
 
   prendreAbonnement(): Observable<Collegue> {
 		return this.subject.asObservable();
@@ -49,15 +52,6 @@ export class DataService {
     {
       return this._serveur.get<Get[]> (`${URL_BACKEND}?nom=${nomSaisie.toLowerCase ()}`);
     }
-    
-  }
-
-  recupererNotesParMatricule (matricule: string) {
-    return this._serveur.get<Note []> (`${URL_BACKEND}/notes/${matricule}`);
-  }
-
-  ajoutNote (matricule:string, message:string) {
-    return this._serveur.post<boolean> (`${URL_BACKEND}/ajoutNote`, new MatriculeMessage (matricule, message));
   }
 
   recupererCollegueParMatricule (matricule:string) :Observable<Collegue>{
@@ -79,5 +73,20 @@ export class DataService {
 
   recupererPhotos (matricule:string) :Observable<CollegueMatriculePhoto []>{
     return this._serveur.get<CollegueMatriculePhoto []> (`${URL_BACKEND}/photos`);
+  }
+
+  // Gestion des notes
+
+  prendreAbonnementNote(): Observable<Note> {
+		return this.subjectNote.asObservable();
+  }
+
+  recupererNotesParMatricule (matricule: string) {
+    return this._serveur.get<Note> (`${URL_BACKEND}/notes/${matricule}`)
+    .pipe ( tap (note => this.subjectNote.next(note)));
+  }
+
+  ajoutNote (matricule:string, message:string) {
+    return this._serveur.post<boolean> (`${URL_BACKEND}/ajoutNote`, new MatriculeMessage (matricule, message));
   }
 }

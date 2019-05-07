@@ -22,6 +22,7 @@ export class AdministrationComponent implements OnInit {
       this.collegues = this._service.recupererCollegues ();
       this.collegues.subscribe (collegues => this.tabCollegues = collegues,
                                 error => console.log (error.message));
+      
       this.collegue = this._service.prendreAbonnement ();
       this.collegue.subscribe (collegue => {
         this.tabCollegues = [];
