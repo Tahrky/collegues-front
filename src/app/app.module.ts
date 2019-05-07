@@ -15,6 +15,7 @@ import { AdministrationComponent } from './administration/administration.compone
 import { GalerieComponent } from './galerie/galerie.component';
 import { CollegueFromGalerieComponent } from './collegue-from-galerie/collegue-from-galerie.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { AProposComponent } from './apropos/apropos.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AccueilComponent } from './accueil/accueil.component';
     AdministrationComponent,
     GalerieComponent,
     CollegueFromGalerieComponent,
-    AccueilComponent
+    AccueilComponent,
+    AProposComponent
   ],
   imports: [
     BrowserModule,
