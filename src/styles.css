@@ -36,24 +36,35 @@ label {
 
 h1 {
     color: white;
-    background-color: var(--darkGrey);
 }
 
 h2 {
     color: white;
-    background-color: var(--darkGrey);
 }
 
 html {
     background-color: var(--darkGrey);
+    color: white;
 }
 
 header {
     background-color: var(--darkGrey);
+    color: white;
 }
 
 nav {
     background-color: var(--darkGrey);
+    color: white;
+}
+
+main {
+    background-color: var(--darkGrey);
+    color: white;
+}
+
+footer {
+    background-color: var(--darkGrey);
+    color: white;
 }
 
 app-root {
@@ -71,9 +82,14 @@ app-root {
     text-align: center;
 }
 
+
+.active-link {
+    background-color: var(--grey);
+    color: white;
+}
+
 .link:hover {
     text-decoration: underline !important;
-    font-weight: bold;
     cursor: pointer;
 }
 
