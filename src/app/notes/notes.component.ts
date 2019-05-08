@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { MatriculeMessage } from '../models/MatriculeMessage'
 import { Note } from '../models/Note';
 import { Observable } from 'rxjs';
 
@@ -12,17 +11,19 @@ import { Observable } from 'rxjs';
 export class NotesComponent implements OnInit {
   note:string = "Vous pouvez écrire ici une petite note pour votre collègue.";
   @Input () matricule;
-  tabNoteObservable:Observable<Note> = new Observable ();
+  tabNoteObservable:Observable<Note []> = new Observable ();
   tabNote:Note[] = new Array <Note> ();
 
   constructor(private _service:DataService) { }
 
   ngOnInit() {
+    setTimeout (() => this._service.recupererNotesParMatricule (this.matricule).subscribe (), 100);
     this.tabNoteObservable = this._service.prendreAbonnementNote ();
-    this.tabNoteObservable.subscribe (note => this.tabNote.push (note), err => console.log (err));
+    this.tabNoteObservable.subscribe (note => this.tabNote = note, err => console.log (err));
   }
 
   submit () {
     this._service.ajoutNote (this.matricule, this.note).subscribe (() => {}, err => console.log (err));
+    this._service.recupererNotesParMatricule (this.matricule).subscribe ();
   }
 }

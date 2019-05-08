@@ -28,16 +28,12 @@ export class DataService {
 
   observable = new Observable ();
   subject:Subject<Collegue> = new Subject();
-  subjectNote:Subject<Note> = new Subject();
+  subjectNote:Subject<Note []> = new Subject();
   
   constructor (private _serveur:HttpClient) {
   }
 
   // Gestion des collègues
-
-  prendreAbonnement(): Observable<Collegue> {
-		return this.subject.asObservable();
-  }
 
   recupererCollegues (): Observable<Collegue[]> {
     return this._serveur.get<Collegue[]> (`${URL_BACKEND}/collegues`);
@@ -54,7 +50,11 @@ export class DataService {
     }
   }
 
-  recupererCollegueParMatricule (matricule:string) :Observable<Collegue>{
+  prendreAbonnement(): Observable<Collegue> {
+		return this.subject.asObservable();
+  }
+
+  recupererCollegueParMatricule (matricule:string){
     return this._serveur.get<Collegue> (`${URL_BACKEND}/${matricule.toLowerCase ()}`)
     .pipe ( tap (collegue => this.subject.next(collegue)));
   }
@@ -77,12 +77,14 @@ export class DataService {
 
   // Gestion des notes
 
-  prendreAbonnementNote(): Observable<Note> {
+  prendreAbonnementNote(): Observable<Note []> {
 		return this.subjectNote.asObservable();
   }
 
-  recupererNotesParMatricule (matricule: string) {
-    return this._serveur.get<Note> (`${URL_BACKEND}/notes/${matricule}`)
+  recupererNotesParMatricule (matricule: string){
+    console.log ("note");
+    console.log (matricule);
+    return this._serveur.get<Note []> (`${URL_BACKEND}/notes/${matricule}`)
     .pipe ( tap (note => this.subjectNote.next(note)));
   }
 

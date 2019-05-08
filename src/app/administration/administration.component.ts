@@ -12,7 +12,7 @@ export class AdministrationComponent implements OnInit {
 
   title = 'collegues-front';
   collegues :Observable<Collegue []>;
-  collegue: Observable<Collegue>;
+  collegueAbonnement: Observable<Collegue>;
   tabCollegues:Collegue [] = new Array ();
 
   constructor (private _service:DataService) {
@@ -23,8 +23,8 @@ export class AdministrationComponent implements OnInit {
       this.collegues.subscribe (collegues => this.tabCollegues = collegues,
                                 error => console.log (error.message));
       
-      this.collegue = this._service.prendreAbonnement ();
-      this.collegue.subscribe (collegue => {
+      this.collegueAbonnement = this._service.prendreAbonnement ();
+      this.collegueAbonnement.subscribe (collegue => {
         this.tabCollegues = [];
         this.tabCollegues.push (collegue)}
       ); 

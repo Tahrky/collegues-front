@@ -11,7 +11,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class CollegueFromGalerieComponent implements OnInit {
 
-  @Input () col:Collegue;
+  @Input () col:Collegue = new Collegue ("","","","","","");
 
   constructor(private _service:DataService, private _route:ActivatedRoute) { }
 
