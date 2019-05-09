@@ -1,6 +1,8 @@
 <div class="row cartel">
   <div class="col-12 col-lg-5 justify-align-center align-self-center entete-cartel">
-    <img src="{{col.photoUrl}}" class="img-fluid img-thumbnail justify-align-center mx-auto d-block" />
+    <a routerLink="/galerie/{{col.matricule}}">
+      <img src="{{col.photoUrl}}" class="img-fluid img-thumbnail justify-align-center mx-auto d-block" />
+    </a>
   </div>
   <div class="col-12 col-lg-7 mx-auto d-block align-small ">
     <form #formCollegue="ngForm" (ngSubmit)="submit()">
