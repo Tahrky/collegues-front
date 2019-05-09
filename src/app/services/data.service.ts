@@ -82,13 +82,15 @@ export class DataService {
   }
 
   recupererNotesParMatricule (matricule: string){
-    console.log ("note");
-    console.log (matricule);
     return this._serveur.get<Note []> (`${URL_BACKEND}/notes/${matricule}`)
     .pipe ( tap (note => this.subjectNote.next(note)));
   }
 
   ajoutNote (matricule:string, message:string) {
     return this._serveur.post<boolean> (`${URL_BACKEND}/ajoutNote`, new MatriculeMessage (matricule, message));
+  }
+  
+  supprNote(id: number) {
+    return this._serveur.post<boolean> (`${URL_BACKEND}/supprNote`, id);
   }
 }

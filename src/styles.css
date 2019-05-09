@@ -111,9 +111,6 @@ app-root {
     border-width: 1px;
     border-radius: 8px;
     margin: 5px;
-    position: relative;
-    width: 97%;
-    left: 2%;
 }
 
 .align-small {
@@ -123,10 +120,12 @@ app-root {
 .error {
     background-color: var(--red);
     font-size: 1.2em;
+    border-radius: 8px;
 }
 
 .success {
     background-color: var(--green);
+    border-radius: 8px;
 }
 
 /* Responsive modification with Bootstrap */
@@ -143,11 +142,6 @@ app-root {
 
     .align-small {
         text-align: left;
-    }
-
-    .cartel {
-        width: 98%;
-        left: 1.25%;
     }
 
     .link {

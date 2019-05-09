@@ -1,16 +1,19 @@
-<div class="row cartel">
-  <div class="col-12 justify-align-center align-self-center entete-cartel">
-    <img src="{{col.photoUrl}}" class="img-fluid img-thumbnail justify-align-center mx-auto d-block" />
-  </div>
-  <div class="col-12 mx-auto d-block align-small text-center">
-    <label>Matricule :</label> {{col.matricule}} <br/>
-    <label>Nom :</label> {{col.nom | uppercase}}<br/>
-    <label>Prenoms :</label> {{col.prenoms | lowercase}} <br/>
-    <label>Date De Naissance :</label> {{col.dateDeNaissance | date:'longDate'}} <br/>
-    <label>Email :</label> {{col.email}} <br/>
-  </div>
+<div class="container-fluid">
+    <div class="col-12 offset-lg-3 col-lg-6 offset-lg-3 cartel">
+      <div class="justify-align-center align-self-center entete-cartel">
+        <img src="{{col.photoUrl}}" class="img-fluid img-thumbnail justify-align-center mx-auto d-block" />
+      </div>
+      <div class="mx-auto d-block align-small text-center">
+        <label>Matricule :</label> {{col.matricule}} <br/>
+        <label>Nom :</label> {{col.nom | uppercase}}<br/>
+        <label>Prenoms :</label> {{col.prenoms | lowercase}} <br/>
+        <label>Date De Naissance :</label> {{col.dateDeNaissance | date:'longDate'}} <br/>
+        <label>Email :</label> {{col.email}} <br/>
+      </div>
+    </div>
+    
+    <div class="text-center">
+      <app-notes [matricule]="col.matricule"></app-notes>
+    </div>
 </div>
 
-<div class="text-center">
-  <app-notes [matricule]="col.matricule"></app-notes>
-</div>

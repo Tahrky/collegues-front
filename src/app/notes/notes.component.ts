@@ -13,6 +13,7 @@ export class NotesComponent implements OnInit {
   @Input () matricule;
   tabNoteObservable:Observable<Note []> = new Observable ();
   tabNote:Note[] = new Array <Note> ();
+  messageEnvoye:boolean = false;
 
   constructor(private _service:DataService) { }
 
@@ -23,7 +24,12 @@ export class NotesComponent implements OnInit {
   }
 
   submit () {
-    this._service.ajoutNote (this.matricule, this.note).subscribe (() => {}, err => console.log (err));
+    this._service.ajoutNote (this.matricule, this.note).subscribe (retour => this.messageEnvoye=retour, err => console.log (err));
     this._service.recupererNotesParMatricule (this.matricule).subscribe ();
+    setTimeout (() => this.messageEnvoye = false, 4000);
+  }
+
+  supprNote(id:number) {
+    this._service.supprNote (id).subscribe ();
   }
 }
