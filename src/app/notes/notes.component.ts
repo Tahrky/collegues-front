@@ -24,12 +24,16 @@ export class NotesComponent implements OnInit {
   }
 
   submit () {
-    this._service.ajoutNote (this.matricule, this.note).subscribe (retour => this.messageEnvoye=retour, err => console.log (err));
-    this._service.recupererNotesParMatricule (this.matricule).subscribe ();
+    this._service.ajoutNote (this.matricule, this.note).subscribe (retour => {
+      this.messageEnvoye=retour;
+      this._service.recupererNotesParMatricule (this.matricule).subscribe ();
+    }, err => console.log (err));
+    
     setTimeout (() => this.messageEnvoye = false, 4000);
   }
 
   supprNote(id:number) {
-    this._service.supprNote (id).subscribe ();
+    this._service.supprNote (id).subscribe (() => this._service.recupererNotesParMatricule (this.matricule).subscribe (), err => (console.log (err)));
+    
   }
 }
