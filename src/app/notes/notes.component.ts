@@ -17,9 +17,9 @@ export class NotesComponent implements OnInit {
   constructor(private _service:DataService) { }
 
   ngOnInit() {
-    setTimeout (() => this._service.recupererNotesParMatricule (this.matricule).subscribe (), 100);
     this.tabNoteObservable = this._service.prendreAbonnementNote ();
     this.tabNoteObservable.subscribe (note => this.tabNote = note, err => console.log (err));
+    setTimeout (() => this._service.recupererNotesParMatricule (this.matricule).subscribe (), 100);
   }
 
   submit () {

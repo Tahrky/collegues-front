@@ -133,8 +133,8 @@ app-root {
 @media (max-width: 991.98px) { 
     .entete-cartel {
         background-color: var(--darkBlue);
-        border: 1px;
-        border-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
         border-radius: 8px;
     }
 }

@@ -1,11 +1,20 @@
+<div *ngIf="!ajoutCollegue">
+    
+</div>
+
 <form #formNote="ngForm" (ngSubmit)="submit()">
-        <textarea class="col-12" [(ngModel)]='note' name="textarea" rows="4">
+        <textarea class="col-12" [(ngModel)]='note' name="textarea" rows="4" wrap="hard">
         </textarea>
         <input class="col-12" value="Envoyer" type="submit"/>
 </form>
 
 <div *ngFor="let noteIndividuelle of tabNote" class="note">
-    {{noteIndividuelle.date}}
-    {{noteIndividuelle.message}}
+    <div class="col-12 note-entete">
+            Message publié le {{noteIndividuelle.date | date:'dd/MM/yyyy à HH:mm:ss'}}
+    </div>
+    <div class="col-12">
+        {{noteIndividuelle.message}}
+    </div>
+    
 </div>
 
