@@ -2,6 +2,10 @@ textarea {
     border-radius: 8px;
 }
 
+span {
+    white-space: pre-line;
+}
+
 .note {
     background-color: var(--grey);
     color: white;

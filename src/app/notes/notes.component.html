@@ -13,7 +13,7 @@
             Message publié le {{noteIndividuelle.date | date:'dd/MM/yyyy à HH:mm:ss'}}
     </div>
     <div class="col-12">
-        {{noteIndividuelle.message}}
+        <span>{{noteIndividuelle.message}}</span>
     </div>
     <a (click)="supprNote(noteIndividuelle.id)" class="col-12 link">Supprimer</a>
 </div>
