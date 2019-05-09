@@ -17,6 +17,7 @@ import { CollegueFromGalerieComponent } from './collegue-from-galerie/collegue-f
 import { AccueilComponent } from './accueil/accueil.component';
 import { AProposComponent } from './apropos/apropos.component';
 import { NotesComponent } from './notes/notes.component';
+import { AuthentificationComponent } from './authentification/authentification.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NotesComponent } from './notes/notes.component';
     CollegueFromGalerieComponent,
     AccueilComponent,
     AProposComponent,
-    NotesComponent
+    NotesComponent,
+    AuthentificationComponent
   ],
   imports: [
     BrowserModule,
