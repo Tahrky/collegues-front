@@ -133,6 +133,10 @@ app-root {
     max-width: 80px !important;
 }
 
+.login:hover {
+    cursor: pointer;
+}
+
 /* Responsive modification with Bootstrap */
 @media (max-width: 991.98px) { 
     .entete-cartel {
