@@ -12,7 +12,7 @@ import { CollegueMatriculePhoto } from '../models/CollegueMatriculePhoto';
 import { CollegueMatriculeMessage } from '../models/CollegueMatriculeMessage'
 import { Note } from '../models/Note';
 
-const URL_BACKEND = environment.backendUrl;
+const URL_BACKEND = environment.backendUrl + 'collegues/';
 
 const httpOptions = {
   headers: new HttpHeaders({
