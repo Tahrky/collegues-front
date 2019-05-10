@@ -128,6 +128,11 @@ app-root {
     border-radius: 8px;
 }
 
+.login {
+    max-height: 50px !important;
+    max-width: 80px !important;
+}
+
 /* Responsive modification with Bootstrap */
 @media (max-width: 991.98px) { 
     .entete-cartel {
