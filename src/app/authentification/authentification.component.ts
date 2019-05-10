@@ -4,6 +4,7 @@ import { Collegue } from '../models/Collegue';
 import { AuthentificationService } from '../services/authentification.service';
 import { RouterLink, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { map, flatMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-authentification',
@@ -21,13 +22,13 @@ export class AuthentificationComponent implements OnInit {
   }
 
   submit () {
-    this._srv.authentification(this.user).subscribe (()=>{
-      this._srv.getMe ().subscribe (collegue => {
+    this._srv.authentification(this.user).
+    pipe(
+      flatMap(col => this._srv.getMe())
+    ).subscribe(collegue => {
         this._srv.collegueEnCours = collegue;
         this.router.navigate([`accueil`]);
-      });
-      
-    }, err => console.log (err));
+      }, err => console.log (err));
   }
 
 }

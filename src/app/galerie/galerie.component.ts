@@ -12,13 +12,11 @@ import { Router } from '@angular/router';
 
 export class GalerieComponent implements OnInit {
   tabCollegues:CollegueMatriculePhoto [] = new Array ();
-  collegues :Observable<CollegueMatriculePhoto []>;
 
   constructor(private _service:DataService, private _router:Router) { }
 
   ngOnInit() {
-    this.collegues = this._service.recupererCollegues ();
-    this.collegues.subscribe (collegues => this.tabCollegues = collegues,
-                              error => console.log (error.message));
+    this._service.recupererCollegues ().subscribe ( collegues => this.tabCollegues = collegues,
+                                                    error => console.log (error.message));
   }
 }

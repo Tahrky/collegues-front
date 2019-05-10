@@ -17,7 +17,7 @@
           Ce champ est requis ! Il doit être rempli pour être valide.
         </div>
         <div class="col-12"> 
-          <label class="col-12">Email :</label> <input class="col-12" appEmailValidator type="email" [(ngModel)]="col.email" name="email" #email="ngModel" required [ngModelOptions]="{updateOn: 'blur'}"/>
+          <label class="col-12">Email :</label> <input class="col-12" type="email" [(ngModel)]="col.email" name="email" #email="ngModel" required [ngModelOptions]="{updateOn: 'blur'}"/>
         </div>
         <div class="error col-12" *ngIf="email.invalid && email.errors.required && email.dirty"> 
           Ce champ est requis ! Il doit être rempli pour être valide.

@@ -19,12 +19,12 @@ export class AdministrationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.collegues = this._service.recupererCollegues ();
-      this.collegues.subscribe (collegues => this.tabCollegues = collegues,
-                                error => console.log (error.message));
+      this._service.recupererCollegues ()
+      .subscribe (collegues => this.tabCollegues = collegues,
+                  error => console.log (error.message));
       
-      this.collegueAbonnement = this._service.prendreAbonnement ();
-      this.collegueAbonnement.subscribe (collegue => {
+      this._service.prendreAbonnement ()
+      .subscribe (collegue => {
         this.tabCollegues = [];
         this.tabCollegues.push (collegue)}
       ); 

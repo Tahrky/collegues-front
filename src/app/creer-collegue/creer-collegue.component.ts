@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Collegue } from '../models/Collegue';
 import { DataService } from '../services/data.service';
+import { flatMap, timeout, tap, delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-creer-collegue',
@@ -24,13 +25,12 @@ export class CreerCollegueComponent implements OnInit {
   }
 
   submit () {
-    this._srv.envoyerCollegue (this.col).subscribe ( (collegue:Collegue) => {
-      this.creationOk = "Collègue ajouté, il va s'afficher à l'écran dans un instant.";
-      setTimeout (() => {
-        this.spread ();
-        this._srv.recupererCollegueParMatricule(collegue.matricule).subscribe (()=>{}, err => {console.log (err.message)});
-      }, 5000);
-      
-    }, err => console.log (err));
+    this._srv.envoyerCollegue (this.col)
+    .pipe(
+      tap(() =>  this.creationOk = "Collègue ajouté, il va s'afficher à l'écran dans un instant."), 
+      delay(2000),
+      tap(() =>  this.spread ()),
+      flatMap( (collegue: Collegue) =>this._srv.recupererCollegueParMatricule(collegue.matricule)))
+      .subscribe ((col)=>{}, err => console.log (err.message));
   } 
 }

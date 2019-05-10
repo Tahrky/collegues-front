@@ -63,8 +63,8 @@ export class DataService {
     return this._serveur.patch<Collegue> (`${URL_BACKEND}/${collegue.matricule.toLowerCase ()}`, collegue, {withCredentials: true});
   }
 
-  envoyerCollegue(collegue:Collegue){
-    return this._serveur.post(`${URL_BACKEND}`, collegue, {withCredentials: true});
+  envoyerCollegue(collegue:Collegue):Observable<Collegue>{
+    return this._serveur.post<Collegue>(`${URL_BACKEND}`, collegue, {withCredentials: true});
   }
 
   existEmail (email:AbstractControl) {
