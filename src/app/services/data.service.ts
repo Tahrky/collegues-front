@@ -9,7 +9,7 @@ import { Get } from '../get';
 import { Collegue } from '../models/Collegue';
 import { tap } from 'rxjs/operators';
 import { CollegueMatriculePhoto } from '../models/CollegueMatriculePhoto';
-import { MatriculeMessage } from '../models/MatriculeMessage'
+import { CollegueMatriculeMessage } from '../models/CollegueMatriculeMessage'
 import { Note } from '../models/Note';
 
 const URL_BACKEND = environment.backendUrl;
@@ -87,7 +87,7 @@ export class DataService {
   }
 
   ajoutNote (matricule:string, message:string) {
-    return this._serveur.post<boolean> (`${URL_BACKEND}/ajoutNote`, new MatriculeMessage (matricule, message));
+    return this._serveur.post<boolean> (`${URL_BACKEND}/ajoutNote`, new CollegueMatriculeMessage (matricule, message));
   }
   
   supprNote(id: number) {
