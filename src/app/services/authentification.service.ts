@@ -16,11 +16,14 @@ const httpOptions = {
 })
 
 export class AuthentificationService {
-    
+  
     constructor (private _serveur:HttpClient) {
     }
 
-    authentification (email:string, motDePasse:string) {
-      return this._serveur.post (`${URL_BACKEND}/auth`, new UtilisateurMailMotDePasse (email, motDePasse));
+    authentification (user:UtilisateurMailMotDePasse) {
+      console.log (user);
+      return this._serveur.post (`${URL_BACKEND}auth`, user, {withCredentials: true});
     }
+
+    
 }

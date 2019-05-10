@@ -1,3 +1,5 @@
-<p>
-  authentification works!
-</p>
+<form #formAuthentification="ngForm" (ngSubmit)="submit()"> 
+  <input class="col-12 col-lg-6" type="email" [(ngModel)]="user.email" name="email" #email="ngModel" required/>
+  <input class="col-12 col-lg-6" type="password" [(ngModel)]="user.motDePasse" name="motDePasse" #motDePasse="ngModel" required/>
+  <input class="col-12" value="Envoyer" type="submit"/>
+</form>

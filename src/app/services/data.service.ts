@@ -12,7 +12,7 @@ import { CollegueMatriculePhoto } from '../models/CollegueMatriculePhoto';
 import { CollegueMatriculeMessage } from '../models/CollegueMatriculeMessage'
 import { Note } from '../models/Note';
 
-const URL_BACKEND = environment.backendUrl + 'collegues/';
+const URL_BACKEND = environment.backendUrl + 'collegues';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -36,17 +36,17 @@ export class DataService {
   // Gestion des collègues
 
   recupererCollegues (): Observable<Collegue[]> {
-    return this._serveur.get<Collegue[]> (`${URL_BACKEND}/collegues`);
+    return this._serveur.get<Collegue[]> (`${URL_BACKEND}/collegues`, {withCredentials: true});
   }
 
   recupererMatriculeParNom (nomSaisie:string) :Observable<Get[]>{
     if (nomSaisie.length == 0)
     {
-      return this._serveur.get<Get[]> (`${URL_BACKEND}/matricules`);
+      return this._serveur.get<Get[]> (`${URL_BACKEND}/matricules`, {withCredentials: true});
     }
     else 
     {
-      return this._serveur.get<Get[]> (`${URL_BACKEND}?nom=${nomSaisie.toLowerCase ()}`);
+      return this._serveur.get<Get[]> (`${URL_BACKEND}?nom=${nomSaisie.toLowerCase ()}`, {withCredentials: true});
     }
   }
 
@@ -55,24 +55,24 @@ export class DataService {
   }
 
   recupererCollegueParMatricule (matricule:string){
-    return this._serveur.get<Collegue> (`${URL_BACKEND}/${matricule.toLowerCase ()}`)
+    return this._serveur.get<Collegue> (`${URL_BACKEND}/${matricule.toLowerCase ()}`, {withCredentials: true})
     .pipe ( tap (collegue => this.subject.next(collegue)));
   }
 
   modifEmail (collegue:Collegue) {
-    return this._serveur.patch<Collegue> (`${URL_BACKEND}/${collegue.matricule.toLowerCase ()}`, collegue);
+    return this._serveur.patch<Collegue> (`${URL_BACKEND}/${collegue.matricule.toLowerCase ()}`, collegue, {withCredentials: true});
   }
 
   envoyerCollegue(collegue:Collegue){
-    return this._serveur.post(`${URL_BACKEND}`, collegue);
+    return this._serveur.post(`${URL_BACKEND}`, collegue, {withCredentials: true});
   }
 
   existEmail (email:AbstractControl) {
-    return this._serveur.post(`${URL_BACKEND}/verifMail`, email.value);
+    return this._serveur.post(`${URL_BACKEND}/verifMail`, email.value, {withCredentials: true});
   }
 
   recupererPhotos (matricule:string) :Observable<CollegueMatriculePhoto []>{
-    return this._serveur.get<CollegueMatriculePhoto []> (`${URL_BACKEND}/photos`);
+    return this._serveur.get<CollegueMatriculePhoto []> (`${URL_BACKEND}/photos`, {withCredentials: true});
   }
 
   // Gestion des notes
@@ -82,15 +82,15 @@ export class DataService {
   }
 
   recupererNotesParMatricule (matricule: string){
-    return this._serveur.get<Note []> (`${URL_BACKEND}/notes/${matricule}`)
+    return this._serveur.get<Note []> (`${URL_BACKEND}/notes/${matricule}`, {withCredentials: true})
     .pipe ( tap (note => this.subjectNote.next(note)));
   }
 
   ajoutNote (matricule:string, message:string) {
-    return this._serveur.post<boolean> (`${URL_BACKEND}/ajoutNote`, new CollegueMatriculeMessage (matricule, message));
+    return this._serveur.post<boolean> (`${URL_BACKEND}/ajoutNote`, new CollegueMatriculeMessage (matricule, message), {withCredentials: true});
   }
   
   supprNote(id: number) {
-    return this._serveur.post<boolean> (`${URL_BACKEND}/supprNote`, id);
+    return this._serveur.post<boolean> (`${URL_BACKEND}/supprNote`, id, {withCredentials: true});
   }
 }
