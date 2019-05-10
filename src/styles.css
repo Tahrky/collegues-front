@@ -98,9 +98,6 @@ app-root {
     border-width: 1px;
     border-radius: 2px;
     border-style: solid;
-}
-
-.menu:hover {
     font-size: 1.2em;
 }
 

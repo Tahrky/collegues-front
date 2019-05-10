@@ -27,7 +27,6 @@ export class AuthentificationService {
     constructor (private _serveur:HttpClient) {
       this.getMe ().subscribe (col => {
         this.collegueEnCours = col;
-        this.subjectBoolean.next (true);
       }, err => console.log (err));
     }
 
@@ -49,7 +48,6 @@ export class AuthentificationService {
         this.subject.next (new CollegueMatriculeNomPrenomsRoles ("", "", "", Array ()));
       }));
     }
-
     getMe () {
       return this._serveur.get<CollegueMatriculeNomPrenomsRoles> ((`${URL_BACKEND}me`), {withCredentials: true})
       .pipe(tap (collegue => {
