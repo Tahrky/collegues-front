@@ -44,7 +44,10 @@ export class AuthentificationService {
     }
 
     deconnexion () {
-      return this._serveur.post<boolean> (`${URL_BACKEND}logout`, null,{withCredentials: true}).pipe (tap (() => this.subjectBoolean.next (false)));
+      return this._serveur.post<boolean> (`${URL_BACKEND}logout`, null,{withCredentials: true}).pipe (tap (() => {
+        this.subjectBoolean.next (false);
+        this.subject.next (new CollegueMatriculeNomPrenomsRoles ("", "", "", Array ()));
+      }));
     }
 
     getMe () {

@@ -24,7 +24,7 @@ export class AuthentificationComponent implements OnInit {
     this._srv.authentification(this.user).subscribe (()=>{
       this._srv.getMe ().subscribe (collegue => {
         this._srv.collegueEnCours = collegue;
-        this.router.navigate([`galerie/`+this._srv.collegueEnCours.matricule]);
+        this.router.navigate([`accueil`]);
       });
       
     }, err => console.log (err));
