@@ -1,9 +1,19 @@
 <div class="text-center">
-  <form #formAuthentification="ngForm" (ngSubmit)="submit()"> 
-    <label class="col-12 col-lg-6">Email</label> 
-    <input class="col-12 col-lg-6" type="email" [(ngModel)]="user.email" name="email" #email="ngModel" required/>
-    <label class="col-12 col-lg-6">Mot de passe</label> 
-    <input class="col-12 col-lg-6" type="password" [(ngModel)]="user.motDePasse" name="motDePasse" #motDePasse="ngModel" required/>
-    <input class="col-12" value="Envoyer" type="submit"/>
-  </form>
+  <div class="row">
+    <div class="col-12">
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <form #formAuthentification="ngForm" (ngSubmit)="submit()" class="cartel"> 
+        <label class="col-12 col-lg-6">Email</label> 
+        <input class="col-12 col-lg-6" type="email" [(ngModel)]="user.email" name="email" #email="ngModel" required/>
+        <label class="col-12 col-lg-6">Mot de passe</label> 
+        <input class="col-12 col-lg-6" type="password" [(ngModel)]="user.motDePasse" name="motDePasse" #motDePasse="ngModel" required/>
+        <br/>
+        <br/>
+        <input class="col-12" value="Envoyer" type="submit"/>
+      </form>
+    </div>
+  </div>
 </div>

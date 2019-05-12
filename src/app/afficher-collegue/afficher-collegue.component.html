@@ -10,13 +10,13 @@
           </div>
         </div>
         <div class="col-12 col-lg-7 mx-auto d-block align-small ">
-          <form #formCollegue="ngForm" (ngSubmit)="submit()">
-            <label>Matricule :</label> {{col.matricule}} <br/>
-            <label>Nom :</label> {{col.nom | uppercase}}<br/>
-            <label>Prenoms :</label> {{col.prenoms | lowercase}} <br/>
-            <label>Date De Naissance :</label> {{col.dateDeNaissance | date:'longDate'}} <br/>
+          <form #formCollegue="ngForm" (ngSubmit)="submit()" class="row">
+            <label class="col-12 col-lg-4">Matricule :</label>          <span class="col-12 col-lg-8">{{col.matricule}} </span><br/>
+            <label class="col-12 col-lg-4">Nom :</label>                <span class="col-12 col-lg-8">{{col.nom | uppercase}}</span><br/>
+            <label class="col-12 col-lg-4">Prenoms :</label>            <span class="col-12 col-lg-8">{{col.prenoms | lowercase}}</span> <br/>
+            <label class="col-12 col-lg-4">Date De Naissance :</label>  <span class="col-12 col-lg-8">{{col.dateDeNaissance | date:'longDate'}}</span> <br/>
             
-            <div [ngSwitch]="edition">
+            <div [ngSwitch]="edition" class="col-12">
               <div *ngSwitchCase="true" class="row">
                 <div class="col-12"> 
                   <div class="row">
@@ -38,14 +38,21 @@
                     Ce champ est invalide ! Il doit contenir au moins 7 caractères.
                 </div>
               </div>
-              <div *ngSwitchDefault>
-                <label>Email :</label> {{col.email}} <br/>
+              <div *ngSwitchDefault class="row">
+                <div class="col-12">
+                  <div class="row">
+                      <label class="col-12 col-lg-4">Email :</label> <span class="col-12 col-lg-8">{{col.email}}</span> <br/>
+                  </div>
+                    
+                </div>
               </div>
             </div>
-            <div class="row">
-              <a (click)="ajoutCollegue()" [hidden]="edition" class="col-6 link">Ajouter un collègue</a>
-              <input type="button" (click)="spread()" [hidden]="!edition" class="col-6" value="Annuler"/> 
-              <input class="col" [disabled]="formCollegue.invalid && colAModifier.email!=col.email" type="submit" [value]="valeurBouton" (click)="spread()"/>
+            <div class="col-12">
+              <div class="row">
+                <a (click)="ajoutCollegue()" [hidden]="edition" class="col-6 link">Ajouter un collègue</a>
+                <input type="button" (click)="spread()" [hidden]="!edition" class="col-6" value="Annuler"/> 
+                <input class="col-6" [disabled]="formCollegue.invalid && colAModifier.email!=col.email" type="submit" [value]="valeurBouton" (click)="spread()"/> 
+              </div>
             </div>
           </form>
         </div>
