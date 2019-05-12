@@ -48,10 +48,10 @@
               </div>
             </div>
             <div class="col-12">
-              <div class="row">
-                <a (click)="ajoutCollegue()" [hidden]="edition" class="col-6 link">Ajouter un collègue</a>
-                <input type="button" (click)="spread()" [hidden]="!edition" class="col-6" value="Annuler"/> 
-                <input class="col-6" [disabled]="formCollegue.invalid && colAModifier.email!=col.email" type="submit" [value]="valeurBouton" (click)="spread()"/> 
+              <div class="row justify-content-around">
+                <a (click)="ajoutCollegue()" [hidden]="edition" class="col-5 link">Ajouter un collègue</a>
+                <input type="button" (click)="spread()" [hidden]="!edition" class="col-5" value="Annuler"/> 
+                <input class="col-5" [disabled]="formCollegue.invalid && colAModifier.email!=col.email" type="submit" [value]="valeurBouton" (click)="spread()"/> 
               </div>
             </div>
           </form>
