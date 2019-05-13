@@ -1,0 +1,6 @@
+.entete-cartel {
+    background-color: var(--darkBlue);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-radius: 8px;
+}
