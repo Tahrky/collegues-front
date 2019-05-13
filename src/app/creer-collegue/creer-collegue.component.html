@@ -1,51 +1,53 @@
 <div class="row">
   <div class="col-12">
     <div class="cartel">
-      <div class="col-12 col-lg-5 justify-align-center align-self-center entete-cartel">
-        <img src="{{col.photoUrl}}" class="img-fluid img-thumbnail justify-align-center mx-auto d-block" />
-      </div>
-      <div class="col-12 col-lg-7 mx-auto d-block align-small ">
-        <form #formAjoutCollegue="ngForm" (ngSubmit)="submit()">
-          <div class="col-12"> 
-            <label class="col-12">Nom :</label> <input class="col-12" type="text" [(ngModel)]="col.nom" name="nom" #nom="ngModel" required /> 
+      <div class="row">
+        <div class="col-12 col-lg-5 justify-align-center align-self-center entete-cartel">
+          <img src="{{col.photoUrl}}" class="img-fluid img-thumbnail justify-align-center mx-auto d-block" />
+        </div>
+        <div class="col-12 col-lg-7 mx-auto d-block align-small ">
+          <form #formAjoutCollegue="ngForm" (ngSubmit)="submit()">
+            <div class="col-12"> 
+              <label class="col-12">Nom :</label> <input class="col-12" type="text" [(ngModel)]="col.nom" name="nom" #nom="ngModel" required /> 
+            </div>
+            <div class="error col-12" *ngIf="nom.invalid && nom.dirty"> 
+              Ce champ est requis ! Il doit être rempli pour être valide.
+            </div>
+            <div class="col-12">  
+              <label class="col-12">Prenoms :</label> <input class="col-12" type="text" [(ngModel)]="col.prenoms" name="prenoms" #prenoms="ngModel" required/>
+            </div>
+            <div class="error col-12" *ngIf="prenoms.invalid && prenoms.dirty"> 
+              Ce champ est requis ! Il doit être rempli pour être valide.
+            </div>
+            <div class="col-12"> 
+              <label class="col-12">Email :</label> <input class="col-12" type="email" [(ngModel)]="col.email" name="email" #email="ngModel" required [ngModelOptions]="{updateOn: 'blur'}"/>
+            </div>
+            <div class="error col-12" *ngIf="email.invalid && email.errors.required && email.dirty"> 
+              Ce champ est requis ! Il doit être rempli pour être valide.
+            </div>
+            <div class="error col-12" *ngIf="email.errors && email.errors.emailExistant"> 
+              {{email.errors.emailExistant}}
+            </div>
+            <div class="col-12"> 
+              <label class="col-12">Date De Naissance :</label> <input class="col-12" type="date" [(ngModel)]="col.dateDeNaissance" name="dateDeNaissance" #dateDeNaissance="ngModel" required/>
+            </div>
+            <div class="error col-12" *ngIf="dateDeNaissance.invalid && dateDeNaissance.dirty"> 
+              Ce champ est requis ! Il doit être rempli pour être valide.
+            </div>
+            <div class="col-12"> 
+              <label class="col-12">photoUrl :</label> <input class="col-12" type="text" [(ngModel)]="col.photoUrl"  name="photoUrl" #photoUrl="ngModel" required minlength="7"/>
+            </div>
+            <div class="error col-12" *ngIf="photoUrl.invalid && photoUrl.dirty"> 
+              Ce champ est requis ! Il doit être rempli pour être valide.
+            </div>
+            <div class="row justify-content-around">
+              <input type="button" (click)="spread()" class="col-5" value="Annuler"/> 
+              <input class="col-5" [disabled]="formAjoutCollegue.invalid" type="submit" value="Valider"/>
+            </div>
+          </form>
+          <div class="col-12 success">
+            {{creationOk}}
           </div>
-          <div class="error col-12" *ngIf="nom.invalid && nom.dirty"> 
-            Ce champ est requis ! Il doit être rempli pour être valide.
-          </div>
-          <div class="col-12">  
-            <label class="col-12">Prenoms :</label> <input class="col-12" type="text" [(ngModel)]="col.prenoms" name="prenoms" #prenoms="ngModel" required/>
-          </div>
-          <div class="error col-12" *ngIf="prenoms.invalid && prenoms.dirty"> 
-            Ce champ est requis ! Il doit être rempli pour être valide.
-          </div>
-          <div class="col-12"> 
-            <label class="col-12">Email :</label> <input class="col-12" type="email" [(ngModel)]="col.email" name="email" #email="ngModel" required [ngModelOptions]="{updateOn: 'blur'}"/>
-          </div>
-          <div class="error col-12" *ngIf="email.invalid && email.errors.required && email.dirty"> 
-            Ce champ est requis ! Il doit être rempli pour être valide.
-          </div>
-          <div class="error col-12" *ngIf="email.errors && email.errors.emailExistant"> 
-            {{email.errors.emailExistant}}
-          </div>
-          <div class="col-12"> 
-            <label class="col-12">Date De Naissance :</label> <input class="col-12" type="date" [(ngModel)]="col.dateDeNaissance" name="dateDeNaissance" #dateDeNaissance="ngModel" required/>
-          </div>
-          <div class="error col-12" *ngIf="dateDeNaissance.invalid && dateDeNaissance.dirty"> 
-            Ce champ est requis ! Il doit être rempli pour être valide.
-          </div>
-          <div class="col-12"> 
-            <label class="col-12">photoUrl :</label> <input class="col-12" type="text" [(ngModel)]="col.photoUrl"  name="photoUrl" #photoUrl="ngModel" required minlength="7"/>
-          </div>
-          <div class="error col-12" *ngIf="photoUrl.invalid && photoUrl.dirty"> 
-            Ce champ est requis ! Il doit être rempli pour être valide.
-          </div>
-          <div class="row">
-            <input type="button" (click)="spread()" class="col-6" value="Annuler"/> 
-            <input class="col" [disabled]="formAjoutCollegue.invalid" type="submit" value="Valider"/>
-          </div>
-        </form>
-        <div class="col-12 success">
-          {{creationOk}}
         </div>
       </div>
     </div>
