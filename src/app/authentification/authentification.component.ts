@@ -13,7 +13,7 @@ import { map, flatMap } from 'rxjs/operators';
 })
 export class AuthentificationComponent implements OnInit {
 
-  user:UtilisateurMailMotDePasse = new UtilisateurMailMotDePasse ('aa@a.a', 'pass1');
+  user:UtilisateurMailMotDePasse = new UtilisateurMailMotDePasse ('aa@a.a', 'pass');
   Collegue:Collegue;
 
   constructor(private _srv:AuthentificationService, private router: Router) { }
